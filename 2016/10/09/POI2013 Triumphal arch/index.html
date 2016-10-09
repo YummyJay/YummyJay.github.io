@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Triumphal arch/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
 <meta property="og:description" content="POI2013 Triumphal arch">
-<meta property="og:updated_time" content="2016-10-09T03:15:43.942Z">
+<meta property="og:updated_time" content="2016-10-09T03:24:55.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POI2013 Triumphal arch">
 <meta name="twitter:description" content="POI2013 Triumphal arch">
@@ -263,7 +263,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 <p>我是直接贪心来写的。</p>
 <p>有一个很明显的思路：B在点i时，轮到B走，B的所有儿子都必须已经被染过，否则下一步A就会输。</p>
 <p>那么定义sum[i]表示B在点i时，A染完i的所有儿子后，还剩下的染点个数。</p>
-<p>若sum[i]\<0表示单凭这一次染色无法染完i的儿子，那么这时候，我们就需要用i的祖先中sum\>0的那些点留出来的染色机会来协助i的染色。</0表示单凭这一次染色无法染完i的儿子，那么这时候，我们就需要用i的祖先中sum\></p>
+<p>若$sum[i]<0$表示单凭这一次染色无法染完i的儿子，那么这时候，我们就需要用i的祖先中$sum[i]>0$的那些点留出来的染色机会来协助i的染色。</0$表示单凭这一次染色无法染完i的儿子，那么这时候，我们就需要用i的祖先中$sum[i]></p>
 <p>于是我们从叶子节点往根一层一层遍历，如果当前节点染色次数不足，则向父亲要。(若父亲不够，则在遍历到它时，它又会向它的父亲要。)</p>
 <p>最后，到根节点为止，根节点没有父亲因而无法向上要，因而我们就看根此时能否满足即可。</p>
 <p>总的复杂度为$O(nlogn)$ 。</p>
@@ -278,7 +278,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Triumphal arch/" data-id="ciu22dz0e0008m89do6jt4ulh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Triumphal arch/" data-id="ciu22hmxs0006189dqqsqirro" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
