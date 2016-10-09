@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>POI2013 Taxis | YummyJay&#39;s archives</title>
+    <title>POI2013 Colorful Chain | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="POI2013 Taxis">
+    <meta name="description" content="POI2013 Colorful Chain">
 <meta property="og:type" content="article">
-<meta property="og:title" content="POI2013 Taxis">
-<meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Taxis/index.html">
+<meta property="og:title" content="POI2013 Colorful Chain">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Colorful Chain/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
-<meta property="og:description" content="POI2013 Taxis">
-<meta property="og:updated_time" content="2016-10-09T05:36:00.801Z">
+<meta property="og:description" content="POI2013 Colorful Chain">
+<meta property="og:updated_time" content="2016-10-09T06:05:19.305Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="POI2013 Taxis">
-<meta name="twitter:description" content="POI2013 Taxis">
+<meta name="twitter:title" content="POI2013 Colorful Chain">
+<meta name="twitter:description" content="POI2013 Colorful Chain">
     
 
     
@@ -212,7 +212,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main"><article id="post-POI2013 Taxis" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-POI2013 Colorful Chain" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +220,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                 
     
         <h1 class="article-title" itemprop="name">
-            POI2013 Taxis
+            POI2013 Colorful Chain
         </h1>
     
 
@@ -229,8 +229,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Taxis/">
-            <time datetime="2016-10-09T03:27:01.000Z" itemprop="datePublished">2016-10-09</time>
+        <a href="/2016/10/09/POI2013 Colorful Chain/">
+            <time datetime="2016-10-09T05:59:29.000Z" itemprop="datePublished">2016-10-09</time>
         </a>
     </div>
 
@@ -244,7 +244,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/贪心/">贪心</a>
+        <a class="tag-link" href="/tags/hash/">hash</a>
     </div>
 
                     </div>
@@ -255,14 +255,12 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><em>POI2013 Taxis</em><br><a id="more"></a></p>
-<h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h4><p>你当前在0处，d处有一个车站，你的家在m处。你现在想坐出租车回家，但出租车只会从车站出发，并且第i辆车只被允许开$x_i$的距离(是路程，而不是位移)。问你回家最少要几辆出租车。</p>
-<p>$PS.$ 比较简单的贪心题。</p>
-<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>有一个贪心思路比较显然：你在到达车站前，派出的车的$x_i$越大，我们所走的重复的路段越小。因而为了尽快到达d，我们可以直接按照$x_i$从大到小依次打车。</p>
-<p>但这样却并不能保证我们能到家。因为我们可能为了用尽量少的车到d而把大的车都用完了，以至于没有一辆车能将你从d送到m去了。</p>
-<p>那怎么办呢？我们发现，若你在d，只需要一辆$x_i&gt;=m-d$的车即可回家。因而一开始，我们给车排序后，先预留一辆大于等于m-d的最小的车。用其他的车先使自己到达d即可。</p>
-<p>(有可能用其他的车可以直接到家，这样就不用加上预留的车的代价了)</p>
-<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(ll&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">500005</span>;</div><div class="line"><span class="keyword">int</span> n;</div><div class="line">ll m,d,num[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</div><div class="line">	sort(num+<span class="number">1</span>,num+<span class="number">1</span>+n);</div><div class="line">	<span class="keyword">int</span> id=lower_bound(num+<span class="number">1</span>,num+<span class="number">1</span>+n,m-d)-num;</div><div class="line">	ll p=<span class="number">0</span>;<span class="keyword">int</span> cnt=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</div><div class="line">		<span class="keyword">if</span>(i==id)<span class="keyword">continue</span>;</div><div class="line">		<span class="keyword">if</span>(p&lt;d)&#123;</div><div class="line">			<span class="keyword">if</span>(num[i]&gt;d-p)&#123;</div><div class="line">				p+=num[i]-d+p;</div><div class="line">				cnt++;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">break</span>;	</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(p&lt;d)&#123;</div><div class="line">		<span class="keyword">if</span>(num[id]&lt;m-p+d-p)<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> cnt+<span class="number">1</span>;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">if</span>(p&lt;m)<span class="keyword">return</span> cnt+<span class="number">1</span>;</div><div class="line">		<span class="keyword">return</span> cnt;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">cin</span>&gt;&gt;m&gt;&gt;d&gt;&gt;n;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)Rd(num[i]);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,solve());</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p><em>POI2013 Colorful Chain</em></p>
+<a id="more"></a>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>给出一个序列p，问有多少个子串满足有$a_i$个$b_i$。</p>
+<p>$PS.$ 感觉是做过来最简单的一道题，利用Hash随便$O(n)$扫过来即可。</p>
+<p><del>但似乎不用快速读入能AC但只有99分？</del></p>
+<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000002</span>,P=<span class="number">233</span>;</div><div class="line">ull f[N],res;</div><div class="line"><span class="keyword">char</span> buf[N*<span class="number">3</span>*<span class="number">8</span>],*p;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(<span class="keyword">int</span>&amp;res)</span></span>&#123;</div><div class="line">	<span class="keyword">for</span>(++p;*p&lt;<span class="number">32</span>;++p);</div><div class="line">	<span class="keyword">for</span>(res=<span class="number">0</span>;*p&gt;<span class="number">47</span>;++p)res=res*<span class="number">10</span>+(*p^<span class="number">48</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span>&#123;</div><div class="line">	f[<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++)f[i]=f[i<span class="number">-1</span>]*P;	</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> n,m,num[N],a[N],tot;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	Init();</div><div class="line">	p=buf<span class="number">-1</span>;</div><div class="line">	fread(buf,<span class="number">1</span>,N*<span class="number">3</span>*<span class="number">8</span>,<span class="built_in">stdin</span>);</div><div class="line">	Rd(n),Rd(m);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</div><div class="line">		Rd(num[i]);</div><div class="line">		tot+=num[i];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,p;i&lt;=m;i++)&#123;</div><div class="line">		Rd(p);</div><div class="line">		res+=f[p]*num[i];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> L=<span class="number">1</span>,R=<span class="number">0</span>,ans=<span class="number">0</span>;</div><div class="line">	ull cur=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,p;i&lt;=n;i++)&#123;</div><div class="line">		R++;</div><div class="line">		Rd(a[i]);</div><div class="line">		cur+=f[a[i]];</div><div class="line">		<span class="keyword">if</span>(R-L+<span class="number">1</span>&gt;tot)cur-=f[a[L++]];</div><div class="line">		<span class="keyword">if</span>(cur==res)ans++;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -273,7 +271,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Taxis/" data-id="ciu288352000fzg9d1k65k9ru" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Colorful Chain/" data-id="ciu28834k0002zg9dsbub9qcz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -348,19 +346,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         
 <nav id="article-nav">
     
-        <a href="/2016/10/09/POI2013 Take-out/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    POI2013 Take-out
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/10/09/POI2013 Triumphal arch/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/10/09/POI2013 Take-out/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">POI2013 Triumphal arch</div>
+            <div class="article-nav-title">POI2013 Take-out</div>
         </a>
     
 </nav>
