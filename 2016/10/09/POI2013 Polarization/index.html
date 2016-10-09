@@ -3,14 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: 想法 | YummyJay&#39;s archives</title>
+    <title>POI2013 Polarization | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="YummyJay's archives">
-<meta property="og:url" content="https://YummyJay.github.io/tags/想法/index.html">
+    <meta name="description" content="POI2013 Polarization">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POI2013 Polarization">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Polarization/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
+<meta property="og:description" content="POI2013 Polarization">
+<meta property="og:updated_time" content="2016-10-09T11:55:54.673Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YummyJay's archives">
+<meta name="twitter:title" content="POI2013 Polarization">
+<meta name="twitter:description" content="POI2013 Polarization">
     
 
     
@@ -208,25 +212,21 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#想法</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-POI2013 Polarization" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Polarization/">POI2013 Polarization</a>
+        <h1 class="article-title" itemprop="name">
+            POI2013 Polarization
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2016/10/09/POI2013 Polarization/">
@@ -235,131 +235,138 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/POI/">POI</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/想法/">想法</a>, <a class="tag-link" href="/tags/树的重心/">树的重心</a>, <a class="tag-link" href="/tags/背包/">背包</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Inspector/">POI2013 Inspector</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><em>POI2013 Polarization</em><br><a id="more"></a></p>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>给定一棵树，可以对每一条边定向成一个有向图，这张有向图的可达点对数为树上有路径从u到达v的点对(u,v)的个数。求最小可达点对数和最大可达点对数。</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>最小值比较显然：首先一条边必然可以产生一个点对，那么可能存在的最小的可达点对数为n-1。接下来可以证明n-1必然可行：依层分别为树染色，奇层黑、偶层白，边只从黑点连向白点，那么可以发现只有n-1条边所对应的点对满足，从而可知，最小值为n-1。</p>
+<p>最大值比较难，首先有一个结论:</p>
+<blockquote>
+<p>一定以重心为根，任意一个子树要么全部指向根，要么全部背离根。</p>
+</blockquote>
+<p><del>哪位神牛会证明，别忘了教我</del></p>
+<p>设指向根的节点数为k1，背离的为k2，那么答案即为$\sum (son_p -1) +k1 \times k2$.</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Inspector/">
-            <time datetime="2016-10-09T10:34:01.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/二分/">二分</a>, <a class="tag-link" href="/tags/想法/">想法</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Tower Defense game/">POI2013 Tower Defense game</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Tower Defense game/">
-            <time datetime="2016-10-09T06:58:42.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/想法/">想法</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Take-out/">POI2013 Take-out</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Take-out/">
-            <time datetime="2016-10-09T05:40:45.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/想法/">想法</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Polarization/" data-id="ciu2kqa0e0009h89dmsa1s9w4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/10/09/POI2013 Inspector/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">POI2013 Inspector</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
