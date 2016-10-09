@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>about | YummyJay&#39;s archives</title>
+    <title>POI2013 Tales of seafaring | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="浙江蒟蒻一只。。。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://YummyJay.github.io/about/index.html">
+    <meta name="description" content="Tales of seafaring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POI2013 Tales of seafaring">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Tales of seafaring/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
-<meta property="og:description" content="浙江蒟蒻一只。。。">
-<meta property="og:updated_time" content="2016-10-09T01:57:05.819Z">
+<meta property="og:description" content="Tales of seafaring">
+<meta property="og:updated_time" content="2016-10-09T02:35:49.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="浙江蒟蒻一只。。。">
+<meta name="twitter:title" content="POI2013 Tales of seafaring">
+<meta name="twitter:description" content="Tales of seafaring">
     
 
     
@@ -212,7 +212,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main"><article id="about-undefined" class="article article-type-about" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-POI2013 Tales of seafaring" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +220,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                 
     
         <h1 class="article-title" itemprop="name">
-            about
+            POI2013 Tales of seafaring
         </h1>
     
 
@@ -229,14 +229,24 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/about/index.html">
-            <time datetime="2016-10-09T01:55:32.000Z" itemprop="datePublished">2016-10-09</time>
+        <a href="/2016/10/09/POI2013 Tales of seafaring/">
+            <time datetime="2016-10-09T02:07:23.000Z" itemprop="datePublished">2016-10-09</time>
         </a>
     </div>
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/POI/">POI</a>
+    </div>
+
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/最短路/">最短路</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -245,7 +255,15 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>浙江蒟蒻一只。。。</p>
+            <p><em>Tales of seafaring</em></p>
+<a id="more"></a>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>一个n个点，m条边的无向图，每一条边的边权都为1。有k个询问，每次询问给出(s,t,d)，要求回答是否存在一条从s到t的路径，长度为d。(路径可以不必是简单路(可以自交))</p>
+<p>$PS.$ 感觉不是很难，有点像想法题。</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>仔细想想最后给的条件，不必是简单路意味着可以在两点之间来回走，从而有这么一个结论：若(s,t,d)可行，那么(s,t,d+2)也可行。(s不是孤立的点)</p>
+<p>从而，思路就很简单了：找到s到t的最短奇路和最短偶路，根据询问d的奇偶性来与其中一个比较，若d比较大，说明我们可以利用来回走使其满足，否则不可行。</p>
+<p>由于内存限制不能跑每一个点然后存下来，我们把询问离线处理，把起点相同的一起处理即可。</p>
+<p>另外，此题还有一个小bug：若s是一个孤立的点，就不能够利用来回走来增加长度了。</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(<span class="keyword">int</span>&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">5005</span>,Q=<span class="number">1000005</span>;</div><div class="line"><span class="keyword">int</span> head[N],tot_edge;</div><div class="line"><span class="keyword">struct</span> Edge&#123;</div><div class="line">	<span class="keyword">int</span> to,nxt;</div><div class="line">&#125;edge[N&lt;&lt;<span class="number">1</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">	edge[tot_edge]=(Edge)&#123;b,head[a]&#125;;</div><div class="line">	head[a]=tot_edge++;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> n,m,k,sum[N];</div><div class="line"><span class="keyword">struct</span> Query&#123;</div><div class="line">	<span class="keyword">int</span> s,t,d,id;</div><div class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt;(<span class="keyword">const</span> Query&amp;tmp)<span class="keyword">const</span>&#123;</div><div class="line">		<span class="keyword">return</span> s&lt;tmp.s;</div><div class="line">	&#125;</div><div class="line">&#125;q[Q];</div><div class="line"><span class="keyword">bool</span> ans[Q];</div><div class="line"><span class="keyword">int</span> dis[<span class="number">2</span>][N];</div><div class="line"><span class="keyword">struct</span> node&#123;</div><div class="line">	<span class="keyword">bool</span> tag;<span class="keyword">int</span> p;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">queue</span>&lt;node&gt;que;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</div><div class="line">	<span class="keyword">while</span>(!que.empty())que.pop();</div><div class="line">	<span class="built_in">memset</span>(dis,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dis));</div><div class="line">	dis[<span class="number">0</span>][s]=<span class="number">0</span>,que.push((node)&#123;<span class="number">0</span>,s&#125;);</div><div class="line">	<span class="keyword">while</span>(!que.empty())&#123;</div><div class="line">		node cur=que.front();que.pop();</div><div class="line">		<span class="keyword">int</span> p=cur.p;<span class="keyword">bool</span> tag=cur.tag;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=head[p];~i;i=edge[i].nxt)&#123;</div><div class="line">			<span class="keyword">int</span> to=edge[i].to;</div><div class="line">			<span class="keyword">if</span>(dis[tag^<span class="number">1</span>][to]==<span class="number">-1</span>)</div><div class="line">				dis[tag^<span class="number">1</span>][to]=dis[tag][p]+<span class="number">1</span>,que.push((node)&#123;tag^<span class="number">1</span>,to&#125;);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));</div><div class="line">	Rd(n),Rd(m),Rd(k);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,a,b;i&lt;=m;i++)&#123;</div><div class="line">		Rd(a),Rd(b);</div><div class="line">		add_edge(a,b);</div><div class="line">		add_edge(b,a);</div><div class="line">		sum[a]++,sum[b]++;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</div><div class="line">		Rd(q[i].s),Rd(q[i].t),Rd(q[i].d),q[i].id=i;</div><div class="line">	&#125;</div><div class="line">	sort(q+<span class="number">1</span>,q+<span class="number">1</span>+k);</div><div class="line">	<span class="keyword">int</span> cnt=<span class="number">0</span>,ns;</div><div class="line">	<span class="keyword">while</span>(cnt&lt;k)&#123;</div><div class="line">		ns=q[cnt+<span class="number">1</span>].s;</div><div class="line">		BFS(ns);</div><div class="line">		<span class="keyword">while</span>(cnt&lt;k&amp;&amp;q[cnt+<span class="number">1</span>].s==ns)&#123;</div><div class="line">			<span class="keyword">int</span> id=q[cnt+<span class="number">1</span>].id,t=q[cnt+<span class="number">1</span>].t,d=q[cnt+<span class="number">1</span>].d;</div><div class="line">			<span class="keyword">bool</span> tag=d%<span class="number">2</span>;</div><div class="line">			<span class="keyword">if</span>(~dis[tag][t]&amp;&amp;(dis[tag][t]==d||dis[tag][t]&lt;d&amp;&amp;sum[t]))ans[id]=<span class="literal">true</span>;</div><div class="line">			<span class="keyword">else</span> ans[id]=<span class="literal">false</span>;</div><div class="line">			cnt++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(ans[i])<span class="built_in">printf</span>(<span class="string">"TAK\n"</span>);</div><div class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"NIE\n"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -256,7 +274,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/about/index.html" data-id="ciu20s7oa0001jw9dxt2gxeov" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Tales of seafaring/" data-id="ciu20s7ob0002jw9dzhzzmhjt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -329,6 +347,16 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     </div>
     
         
+<nav id="article-nav">
+    
+    
+        <a href="/2016/10/08/POI2013 Price List/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">POI2013 Price List</div>
+        </a>
+    
+</nav>
+
 
     
 </article>
