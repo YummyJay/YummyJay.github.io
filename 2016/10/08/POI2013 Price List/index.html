@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://YummyJay.github.io/2016/10/08/POI2013 Price List/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
 <meta property="og:description" content="POI2013 Price List">
-<meta property="og:updated_time" content="2016-10-09T01:57:57.879Z">
+<meta property="og:updated_time" content="2016-10-09T03:29:16.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POI2013 Price List">
 <meta name="twitter:description" content="POI2013 Price List">
@@ -160,7 +160,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                5
+                6
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -259,9 +259,11 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 <h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>给定一个无向图，边权均为$a$，然后将原图中满足最短路等于$2a$的点对$(x,y)$之间再加一条边权为$b$的边。求$k$的单源最短路。</p>
 <p>$PS.$各种乱搞，写不出来，只好膜题解。</p>
 <h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>不难想到的是，最短路只会是以下几种情况：</p>
-<p>1.直接在原图上走最短路。</p>
-<p>2.原图最短路，每两条边合并成一个$b$。(若长度为奇数，还要补一个$a$)</p>
-<p>3.如果按2中的方案走，长度为奇数的路径是要补$a$的，但倘若$a$很大的话，那就不划算了。因而可以在原图上找到一种稍长的、但可以保证完美缩成若干$b$的路线，这样反而可以更短。</p>
+<ol>
+<li>直接在原图上走最短路。</li>
+<li>原图最短路，每两条边合并成一个$b$。(若长度为奇数，还要补一个$a$)</li>
+<li>如果按2中的方案走，长度为奇数的路径是要补$a$的，但倘若$a$很大的话，那就不划算了。因而可以在原图上找到一种稍长的、但可以保证完美缩成若干$b$的路线，这样反而可以更短。</li>
+</ol>
 <p>前两种情况比较好处理，直接跑最短路就可以了。由于边权都是$a$，因而可以直接用$BFS$，此时的复杂度为$O(m)$.</p>
 <p>但第三种情况就不太好搞了，但我们可以尝试先写出暴力。</p>
 <p>也可以用$BFS$。</p>
@@ -289,7 +291,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/2016/10/08/POI2013 Price List/" data-id="ciu22hmxv0008189dlk383pwz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/10/08/POI2013 Price List/" data-id="ciu22my6i0002xc9d70it0eci" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -405,6 +407,15 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/POI/">POI</a></p>
+                            <p class="item-title"><a href="/2016/10/09/POI2013 Taxis/" class="title">POI2013 Taxis</a></p>
+                            <p class="item-date"><time datetime="2016-10-09T03:27:01.000Z" itemprop="datePublished">2016-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/POI/">POI</a></p>
                             <p class="item-title"><a href="/2016/10/09/POI2013 Triumphal arch/" class="title">POI2013 Triumphal arch</a></p>
                             <p class="item-date"><time datetime="2016-10-09T02:59:25.000Z" itemprop="datePublished">2016-10-09</time></p>
                         </div>
@@ -437,15 +448,6 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/杂/">杂</a></p>
-                            <p class="item-title"><a href="/2016/10/08/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2016-10-08T12:00:00.000Z" itemprop="datePublished">2016-10-08</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -455,7 +457,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/POI/">POI</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂/">杂</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/POI/">POI</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂/">杂</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -464,7 +466,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">6</span></li></ul>
         </div>
     </div>
 
@@ -473,7 +475,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分/">二分</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向链表/">双向链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分/">二分</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向链表/">双向链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -482,7 +484,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/二分/" style="font-size: 10px;">二分</a> <a href="/tags/双向链表/" style="font-size: 10px;">双向链表</a> <a href="/tags/最短路/" style="font-size: 20px;">最短路</a> <a href="/tags/杂/" style="font-size: 10px;">杂</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a>
+            <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/二分/" style="font-size: 10px;">二分</a> <a href="/tags/双向链表/" style="font-size: 10px;">双向链表</a> <a href="/tags/最短路/" style="font-size: 20px;">最短路</a> <a href="/tags/杂/" style="font-size: 10px;">杂</a> <a href="/tags/贪心/" style="font-size: 20px;">贪心</a>
         </div>
     </div>
 
