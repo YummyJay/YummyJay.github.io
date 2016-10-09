@@ -3,14 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: 双向链表 | YummyJay&#39;s archives</title>
+    <title>POI2013 Bytecomputer | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="YummyJay's archives">
-<meta property="og:url" content="https://YummyJay.github.io/tags/双向链表/index.html">
+    <meta name="description" content="POI2013 Bytecomputer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POI2013 Bytecomputer">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Bytecomputer/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
+<meta property="og:description" content="POI2013 Bytecomputer">
+<meta property="og:updated_time" content="2016-10-09T02:55:49.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YummyJay's archives">
+<meta name="twitter:title" content="POI2013 Bytecomputer">
+<meta name="twitter:description" content="POI2013 Bytecomputer">
     
 
     
@@ -208,50 +212,159 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#双向链表</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-POI2013 Bytecomputer" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/08/POI2013 Price List/">POI2013 Price List</a>
+        <h1 class="article-title" itemprop="name">
+            POI2013 Bytecomputer
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/08/POI2013 Price List/">
-            <time datetime="2016-10-08T14:36:14.000Z" itemprop="datePublished">2016-10-08</time>
+        <a href="/2016/10/09/POI2013 Bytecomputer/">
+            <time datetime="2016-10-09T02:40:59.000Z" itemprop="datePublished">2016-10-09</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/POI/">POI</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/双向链表/">双向链表</a>, <a class="tag-link" href="/tags/最短路/">最短路</a>
+        <a class="tag-link" href="/tags/dp/">dp</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><em>POI2013 Bytecomputer</em></p>
+<a id="more"></a>
+<h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h4><p>给定一个{-1,0,1}组成的序列,你可以进行$x[i]=x[i]+x[i-1]$这样的操作,求最少操作次数使其变成不降序列。</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>首先猜测，从左往右依次过来，一定能够得到一组最优解。<del>(哪位大神会证来教教我)</del></p>
+<p>于是定义dp[i][j]表示到i为止，结尾为j的最小代价。</p>
+<p>$O(n)​$ 暴力转移即可。</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(<span class="keyword">int</span>&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;<span class="keyword">int</span> k=<span class="number">1</span>;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),!<span class="built_in">isdigit</span>(c)&amp;&amp;c!=<span class="string">'-'</span>);</div><div class="line">	<span class="keyword">if</span>(c==<span class="string">'-'</span>)k=<span class="number">-1</span>,c=getchar();</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),<span class="built_in">isdigit</span>(c));</div><div class="line">	res=res*k;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000005</span>,inf=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</div><div class="line"><span class="keyword">int</span> n,num[N],dp[<span class="number">3</span>][N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	Rd(n);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)Rd(num[i]);</div><div class="line">	<span class="keyword">if</span>(num[<span class="number">1</span>]==<span class="number">-1</span>)dp[<span class="number">0</span>][<span class="number">1</span>]=<span class="number">0</span>,dp[<span class="number">1</span>][<span class="number">1</span>]=dp[<span class="number">2</span>][<span class="number">1</span>]=inf;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(num[<span class="number">1</span>]==<span class="number">0</span>)dp[<span class="number">1</span>][<span class="number">1</span>]=<span class="number">0</span>,dp[<span class="number">0</span>][<span class="number">1</span>]=dp[<span class="number">2</span>][<span class="number">1</span>]=inf;</div><div class="line">	<span class="keyword">else</span> dp[<span class="number">2</span>][<span class="number">1</span>]=<span class="number">0</span>,dp[<span class="number">0</span>][<span class="number">1</span>]=dp[<span class="number">1</span>][<span class="number">1</span>]=inf;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(num[i]==<span class="number">1</span>)&#123;</div><div class="line">			dp[<span class="number">2</span>][i]=min(dp[<span class="number">0</span>][i<span class="number">-1</span>],min(dp[<span class="number">1</span>][i<span class="number">-1</span>],dp[<span class="number">2</span>][i<span class="number">-1</span>]));</div><div class="line">			dp[<span class="number">1</span>][i]=dp[<span class="number">0</span>][i<span class="number">-1</span>]+<span class="number">1</span>;</div><div class="line">			dp[<span class="number">0</span>][i]=dp[<span class="number">0</span>][i<span class="number">-1</span>]+<span class="number">2</span>;</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(num[i]==<span class="number">-1</span>)&#123;</div><div class="line">			dp[<span class="number">2</span>][i]=dp[<span class="number">2</span>][i<span class="number">-1</span>]+<span class="number">2</span>;</div><div class="line">			dp[<span class="number">1</span>][i]=inf;</div><div class="line">			dp[<span class="number">0</span>][i]=dp[<span class="number">0</span>][i<span class="number">-1</span>];</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			dp[<span class="number">2</span>][i]=dp[<span class="number">2</span>][i<span class="number">-1</span>]+<span class="number">1</span>;</div><div class="line">			dp[<span class="number">1</span>][i]=min(dp[<span class="number">0</span>][i<span class="number">-1</span>],dp[<span class="number">1</span>][i<span class="number">-1</span>]);</div><div class="line">			dp[<span class="number">0</span>][i]=dp[<span class="number">0</span>][i<span class="number">-1</span>]+<span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> ans=min(dp[<span class="number">0</span>][n],min(dp[<span class="number">1</span>][n],dp[<span class="number">2</span>][n]));</div><div class="line">	<span class="keyword">if</span>(ans&gt;=inf)<span class="built_in">printf</span>(<span class="string">"BRAK\n"</span>);</div><div class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Bytecomputer/" data-id="ciu21gyds00006k9dgqbxk6hn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/10/09/POI2013 Tales of seafaring/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">POI2013 Tales of seafaring</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
