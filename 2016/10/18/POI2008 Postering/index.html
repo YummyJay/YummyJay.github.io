@@ -3,18 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>POI2013 Walk | YummyJay&#39;s archives</title>
+    <title>POI2008 Postering | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="POI2013 Walk">
+    <meta name="description" content="POI2008 Postering">
 <meta property="og:type" content="article">
-<meta property="og:title" content="POI2013 Walk">
-<meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Walk/index.html">
+<meta property="og:title" content="POI2008 Postering">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/18/POI2008 Postering/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
-<meta property="og:description" content="POI2013 Walk">
-<meta property="og:updated_time" content="2016-10-09T13:37:32.043Z">
+<meta property="og:description" content="POI2008 Postering">
+<meta property="og:image" content="https://yummyjay.github.io/img/poi2008postering1.png">
+<meta property="og:image" content="https://yummyjay.github.io/img/poi2008postering2.png">
+<meta property="og:updated_time" content="2016-10-18T11:57:58.540Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="POI2013 Walk">
-<meta name="twitter:description" content="POI2013 Walk">
+<meta name="twitter:title" content="POI2008 Postering">
+<meta name="twitter:description" content="POI2008 Postering">
+<meta name="twitter:image" content="https://yummyjay.github.io/img/poi2008postering1.png">
     
 
     
@@ -212,7 +215,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main"><article id="post-POI2013 Walk" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-POI2008 Postering" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +223,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                 
     
         <h1 class="article-title" itemprop="name">
-            POI2013 Walk
+            POI2008 Postering
         </h1>
     
 
@@ -229,8 +232,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Walk/">
-            <time datetime="2016-10-09T13:09:00.000Z" itemprop="datePublished">2016-10-09</time>
+        <a href="/2016/10/18/POI2008 Postering/">
+            <time datetime="2016-10-18T11:07:35.000Z" itemprop="datePublished">2016-10-18</time>
         </a>
     </div>
 
@@ -244,7 +247,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/想法/">想法</a>
+        <a class="tag-link" href="/tags/单调栈/">单调栈</a>, <a class="tag-link" href="/tags/线段树/">线段树</a>
     </div>
 
                     </div>
@@ -255,29 +258,22 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><em>POI2013 Walk</em><br><a id="more"></a></p>
-<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>有$2^n-k$个点，每个点有一个独一无二的、长度为n的01串，但是有k个01串没有出现过。每两个点之间有连边当且仅当两个01串之间有且仅有一个位置是不同的。现在询问x和y两个字符串能不能互相到达。</p>
-<p>$PS.$ 感谢commonc大神的题解，以下内容借鉴了他的题解。</p>
-<p><a href="http://blog.csdn.net/commonc/article/details/51670965" target="_blank" rel="external">commonc的题解</a></p>
-<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>首先，这样的点所连的图与超立方体类似。</p>
-<p>而对于超立方体有如下定理：</p>
-<blockquote>
-<p>如果把所有顶点划分成为两个集合，这两个集合之间的边数至少是这两个点集中较小的那个的点的个数。</p>
-</blockquote>
-<p>利用上述定理，我们可以利用反证法证明如下结论：</p>
-<blockquote>
-<p>删去k个点后，一定至多存在一个连通块它的大小大于nk。</p>
-</blockquote>
-<p>证明：</p>
-<blockquote>
-<p>假设有两个独立的连通块S,T，它们的大小都大于nk。则有 $T \subseteq V - S  $ ,即 $\mid V - S \mid \geq \mid T \mid \geq nk+1 $</p>
-<p>由上述定理可知:$S$ 与$V-S$ 之间的边至少有nk+1条。</p>
-<p>接着因为一共删掉了k个点，而每一个点向外连k条边，所以最多只能删掉nk+1条中的nk条边，也就是说$S$和$V-S$ 之间一定还有边相连。</p>
-<p>这与S是一个独立集的假设矛盾，所以结论得证。</p>
-</blockquote>
-<p>有了这个定理，我们可以直接BFS，当步数大于nk后，说明该点在最大的连通块内。</p>
-<p>由此就可以快速判断两点是否在一个连通块内了。</p>
-<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">5000001</span>,M=<span class="number">9999991</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> hash jksdafdjk</span></div><div class="line"><span class="keyword">int</span> n,k,tot_id,head[M+<span class="number">5</span>];</div><div class="line"><span class="keyword">char</span> str[<span class="number">100</span>];</div><div class="line"><span class="keyword">struct</span> Hash&#123;</div><div class="line">	ll id;<span class="keyword">int</span> nxt;</div><div class="line">&#125;hash[N];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_id</span><span class="params">(ll p)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> pos=p%M;</div><div class="line">	hash[++tot_id]=(Hash)&#123;p,head[pos]&#125;;</div><div class="line">	head[pos]=tot_id;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_vis</span><span class="params">(ll p)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> pos=p%M;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=head[pos];i;i=hash[i].nxt)</div><div class="line">		<span class="keyword">if</span>(hash[i].id==p)<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="function">ll <span class="title">string_ll</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str);</div><div class="line">	ll res=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">		res=res*<span class="number">2</span>+(str[i]&amp;<span class="number">15</span>);	</div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line">ll s,t,que[N+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(ll cur)</span></span>&#123;</div><div class="line">	ll res=s+t-cur;</div><div class="line">	<span class="keyword">int</span> L=<span class="number">0</span>,R=<span class="number">0</span>;</div><div class="line">	que[R++]=cur;</div><div class="line">	add_id(cur);</div><div class="line">	<span class="keyword">while</span>(L&lt;R)&#123;</div><div class="line">		ll p=que[L++];</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">			ll nxt=p^(<span class="number">1L</span>L&lt;&lt;i);</div><div class="line">			<span class="keyword">if</span>(nxt==res)<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">			<span class="keyword">if</span>(!is_vis(nxt))&#123;</div><div class="line">				add_id(nxt);</div><div class="line">				que[R++]=nxt;</div><div class="line">				<span class="keyword">if</span>(R&gt;=n*k)<span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line">ll val[<span class="number">1000005</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">YES</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">puts</span>(<span class="string">"TAK"</span>);</div><div class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">NO</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">puts</span>(<span class="string">"NIE"</span>);</div><div class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</div><div class="line">	s=string_ll(),t=string_ll();</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</div><div class="line">		val[i]=string_ll();</div><div class="line">		add_id(val[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> ans1=solve(s);</div><div class="line">	<span class="keyword">if</span>(ans1==<span class="number">1</span>)YES();</div><div class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(ans1!=<span class="number">2</span>)NO();</div><div class="line">	<span class="built_in">memset</span>(head,<span class="number">0</span>,<span class="keyword">sizeof</span>(head));tot_id=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)add_id(val[i]);</div><div class="line">	<span class="keyword">int</span> ans2=solve(t);</div><div class="line">	<span class="keyword">if</span>(ans2==<span class="number">1</span>||ans2==<span class="number">2</span>)<span class="built_in">puts</span>(<span class="string">"TAK"</span>);</div><div class="line">	<span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"NIE"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p><em>POI2008 Postering</em></p>
+<a id="more"></a>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>有n个矩形排成一排，现在希望用尽量少的矩型海报覆盖住它们。问最少需要几张海报。</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>首先我们可以知道，n张海报是一定可以满足条件的。大不了每一个矩形我都用一张海报。</p>
+<p>但实际上，这肯定是不用这么多的。</p>
+<p><img src="https://yummyjay.github.io/img/poi2008postering1.png" alt="img"></p>
+<p>当我们遇到这种情况时，我们不需要三张海报，而只需要两张。</p>
+<p><img src="https://yummyjay.github.io/img/poi2008postering2.png" alt="img"></p>
+<p>总结一下我们发现，如果两个矩形高度相同，并且它们之间的矩形高度都比它们高，那么我们可以少花一个代价。</p>
+<p>首先枚举两个相同高度的矩形，再用线段树求区间最小值，看是否满足条件。</p>
+<p>这样题目就能够AC了，复杂度为$O(nlogn)$。</p>
+<p>但实际上可以不这么写。我们维护一个单调栈，即可在$O(n)$的时间内解决该题。</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h4><p> <strong>线段树</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(<span class="keyword">int</span>&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">250001</span>;</div><div class="line"><span class="keyword">int</span> n,num[N],tmp[N];</div><div class="line"><span class="keyword">struct</span> Segment_Tree&#123;</div><div class="line">	<span class="keyword">struct</span> node&#123;</div><div class="line">		<span class="keyword">int</span> L,R,mi;</div><div class="line">	&#125;tree[N&lt;&lt;<span class="number">2</span>];</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span> p)</span></span>&#123;</div><div class="line">		tree[p].mi=min(tree[p&lt;&lt;<span class="number">1</span>].mi,tree[p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>].mi);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> p)</span></span>&#123;</div><div class="line">		tree[p].L=L,tree[p].R=R;</div><div class="line">		<span class="keyword">if</span>(L==R)&#123;</div><div class="line">			tree[p].mi=num[L];</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">int</span> mid=L+R&gt;&gt;<span class="number">1</span>;</div><div class="line">		build(L,mid,p&lt;&lt;<span class="number">1</span>);</div><div class="line">		build(mid+<span class="number">1</span>,R,p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">		pushup(p);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> p)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(tree[p].L==L&amp;&amp;tree[p].R==R)&#123;</div><div class="line">			<span class="keyword">return</span> tree[p].mi;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">int</span> mid=tree[p].L+tree[p].R&gt;&gt;<span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span>(R&lt;=mid)<span class="keyword">return</span> query(L,R,p&lt;&lt;<span class="number">1</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(L&gt;mid)<span class="keyword">return</span> query(L,R,p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> min(query(L,mid,p&lt;&lt;<span class="number">1</span>),query(mid+<span class="number">1</span>,R,p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>));</div><div class="line">	&#125;</div><div class="line">&#125;T;</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;h[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	Rd(n);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,a;i&lt;=n;i++)&#123;</div><div class="line">		Rd(a),Rd(num[i]);</div><div class="line">		tmp[i]=num[i];</div><div class="line">	&#125;</div><div class="line">	sort(tmp+<span class="number">1</span>,tmp+<span class="number">1</span>+n);</div><div class="line">	<span class="keyword">int</span> len=unique(tmp+<span class="number">1</span>,tmp+<span class="number">1</span>+n)-tmp<span class="number">-1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		num[i]=lower_bound(tmp+<span class="number">1</span>,tmp+<span class="number">1</span>+len,num[i])-tmp;</div><div class="line">	T.build(<span class="number">1</span>,n,<span class="number">1</span>);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		h[num[i]].push_back(i);</div><div class="line">	<span class="keyword">int</span> ans=n;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=len;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;h[i].size();j++)&#123;</div><div class="line">			<span class="keyword">int</span> pre=h[i][j<span class="number">-1</span>],cur=h[i][j];</div><div class="line">			<span class="keyword">if</span>(T.query(pre,cur,<span class="number">1</span>)&lt;i)<span class="keyword">continue</span>;</div><div class="line">			ans--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>单调栈</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(<span class="keyword">int</span>&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">250001</span>;</div><div class="line"><span class="keyword">int</span> n,stk[N],top;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	Rd(n);</div><div class="line">	stk[top++]=<span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> ans=n;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,a,b;i&lt;=n;i++)&#123;</div><div class="line">		Rd(a),Rd(b);</div><div class="line">		<span class="keyword">while</span>(stk[top<span class="number">-1</span>]&gt;=b)&#123;</div><div class="line">			<span class="keyword">if</span>(stk[top<span class="number">-1</span>]==b)ans--;</div><div class="line">			top--;</div><div class="line">		&#125;</div><div class="line">		stk[top++]=b;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -288,7 +284,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Walk/" data-id="ciuffugkv0013749dia5x953j" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/10/18/POI2008 Postering/" data-id="ciuffugk60006749dit1b57pq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -363,19 +359,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         
 <nav id="article-nav">
     
-        <a href="/2016/10/09/POI2013/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    POI2013
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/10/09/POI2013 Laser/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/10/18/POI2008 Building blocks/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">POI2013 Laser</div>
+            <div class="article-nav-title">POI2008 Building blocks</div>
         </a>
     
 </nav>
