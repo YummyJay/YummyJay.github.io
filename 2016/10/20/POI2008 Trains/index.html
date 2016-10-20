@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>POI2013 Inspector | YummyJay&#39;s archives</title>
+    <title>POI2008 Trains | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="POI2013 Inspector">
+    <meta name="description" content="POI20008 Trains">
 <meta property="og:type" content="article">
-<meta property="og:title" content="POI2013 Inspector">
-<meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Inspector/index.html">
+<meta property="og:title" content="POI2008 Trains">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/20/POI2008 Trains/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
-<meta property="og:description" content="POI2013 Inspector">
-<meta property="og:updated_time" content="2016-10-09T11:22:37.140Z">
+<meta property="og:description" content="POI20008 Trains">
+<meta property="og:updated_time" content="2016-10-20T02:31:29.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="POI2013 Inspector">
-<meta name="twitter:description" content="POI2013 Inspector">
+<meta name="twitter:title" content="POI2008 Trains">
+<meta name="twitter:description" content="POI20008 Trains">
     
 
     
@@ -212,7 +212,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main"><article id="post-POI2013 Inspector" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-POI2008 Trains" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +220,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                 
     
         <h1 class="article-title" itemprop="name">
-            POI2013 Inspector
+            POI2008 Trains
         </h1>
     
 
@@ -229,8 +229,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Inspector/">
-            <time datetime="2016-10-09T10:34:01.000Z" itemprop="datePublished">2016-10-09</time>
+        <a href="/2016/10/20/POI2008 Trains/">
+            <time datetime="2016-10-20T02:02:58.000Z" itemprop="datePublished">2016-10-20</time>
         </a>
     </div>
 
@@ -244,7 +244,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/二分/">二分</a>, <a class="tag-link" href="/tags/想法/">想法</a>
+        <a class="tag-link" href="/tags/Treap/">Treap</a>, <a class="tag-link" href="/tags/hash/">hash</a>
     </div>
 
                     </div>
@@ -255,41 +255,15 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><em>POI2013 Inspector</em></p>
+            <p><em>POI20008 Trains</em></p>
 <a id="more"></a>
-<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>一天公司有n个员工和m个员工记录，每个员工只会在连续的一段时间内工作。当然写观察记录的时候肯定会在工作。记录会给出当时除了他还有多少人在公司。现在给出m条记录分别是谁写的、什么时候写的以及写的时候还有多少人。求第k条记录使得前k条记录可以同时存在不矛盾，且前k+1条记录是矛盾的。输出这个k。</p>
-<p>$PS.$ 没有写出来，但似乎并不难。<del>有些乱，但似乎只是乱搞就可以AC？</del><br>最后还是去看了题解，在这里orz commoc，他的题解写的很好。</p>
-<p><a href="http://blog.csdn.net/commonc/article/details/51548366" target="_blank" rel="external">commoc的题解戳这儿</a></p>
-<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>一个很明显的思路是二分答案，把题目转化成判定性的问题，这样记录就没有先后顺序之分了。</p>
-<p>重点是有关出现矛盾的判断:</p>
-<ol>
-<li><p>记录本身的矛盾：两个记录在同一时刻，但人数不同。</p>
-<p>这个可以直接特判，比较无脑。</p>
-</li>
-<li><p>记录的记载而产生约束关系形成了矛盾：比如某人在L时刻、R时刻都记录了东西，但L、R之间存在别人的一个记录，说除他外没有人了，这显然就有问题了。因为刚开始的那个人，在[L,R]之间是必然一直存在的。</p>
-<p>这个也比较容易判断：</p>
-<p>我们记录每一个人的最晚开始时间与最早结束时间，当成一条线段。对于每一个时间点，我们看看有多少条线段覆盖它。(这是当前时刻最少工作人数)</p>
-<p>如果它大于当前时间点的记录人数，显然不可行。</p>
-</li>
-<li><p>可以构造出方案，但会超过n个人的限制。</p>
-<p>这与上一条的区别在于它是可以满足约束条件的，但人数会超。</p>
-<p>比如：1时刻有一个人记录有两个人，2时刻记录有1个人，3时刻记录有2个人。当n=3时显然是可以的，但n=2时显然不行。</p>
-<p>首先我们想到，人数少是无所谓的，可以认为有些人一直未工作或不在记录的时间点上工作。</p>
-<p>所以我们只要算出符合条件的最少人数，看是否小于等于n即可。</p>
-<p>那么如何计算呢？</p>
-<p>令now表示当前必须在工作的人的数量，total表示当前最少符合的人数。</p>
-<p>并令done表示所对应区间已经过去了，还可以留下来工作的人。</p>
-<p>令notbegin表示所对应的区间已经过去，但还可以留下来工作的人。</p>
-<p>每到达一个新的时刻，我们可以比较一下now+done+notbegin与tot[i] (这个点记录的人数) 的大小。</p>
-<p>如果比tot[i] 小，说明人数还不够，我们需要再让一些人提前开始工作。</p>
-<p>如果比tot[i] 大，那说明人数多了，我们就让done中的人结束工作，如果还是多，那就让notbegin中的人结束工作。</p>
-<p>这时可能会有一个问题：</p>
-<p>notbegin的区间还没有开始，怎么可以结束工作呢？这样不相当于矛盾了么?</p>
-<p>其实并不是，我们可以认为，我们去掉的是一个没有写过记录的人，他们没有记录，因而没有固定的区间，他们可以随时开始随时结束。(但他们也会被记录到total中)</p>
-</li>
-</ol>
-<p>这样一来，题目即可解决了。</p>
-<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(<span class="keyword">int</span>&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=(<span class="keyword">int</span>)<span class="number">1e5</span>+<span class="number">1</span>,inf=(<span class="keyword">int</span>)<span class="number">1e9</span>+<span class="number">7</span>;</div><div class="line"><span class="keyword">int</span> n,m,t[N],id[N],num[N],tot[N];</div><div class="line"><span class="keyword">int</span> st[N],ed[N],mi[N],mx[N];</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">int</span> lim)</span></span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		mi[i]=inf,mx[i]=-inf;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</div><div class="line">		tot[i]=st[i]=ed[i]=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=lim;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(tot[t[i]]&amp;&amp;tot[t[i]]!=num[i]+<span class="number">1</span>)<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">		tot[t[i]]=num[i]+<span class="number">1</span>;</div><div class="line">		mi[id[i]]=min(mi[id[i]],t[i]);</div><div class="line">		mx[id[i]]=max(mx[id[i]],t[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">if</span>(mi[i]!=inf&amp;&amp;mx[i]!=-inf)</div><div class="line">			st[mi[i]]++,ed[mx[i]]++;</div><div class="line">	<span class="keyword">int</span> now=<span class="number">0</span>,total=<span class="number">0</span>,notbegin=<span class="number">0</span>,done=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(tot[i])&#123;</div><div class="line">			now+=st[i];</div><div class="line">			<span class="keyword">if</span>(now&gt;tot[i])<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">			notbegin-=st[i];</div><div class="line">			<span class="keyword">if</span>(notbegin&lt;<span class="number">0</span>)total-=notbegin,notbegin=<span class="number">0</span>;</div><div class="line">			<span class="keyword">if</span>(now+notbegin+done&lt;tot[i])total+=tot[i]-now-notbegin-done,notbegin=tot[i]-done-now;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">if</span>(now+notbegin&lt;=tot[i])done=tot[i]-notbegin-now;</div><div class="line">				<span class="keyword">else</span> notbegin=tot[i]-now,done=<span class="number">0</span>;</div><div class="line">			&#125;</div><div class="line">			now-=ed[i],done+=ed[i];</div><div class="line">		&#125;</div><div class="line">	&#125;   </div><div class="line">    <span class="keyword">if</span>(total&gt;n)<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</div><div class="line">	Rd(n),Rd(m);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</div><div class="line">		Rd(t[i]),Rd(id[i]),Rd(num[i]);</div><div class="line">	<span class="keyword">int</span> L=<span class="number">0</span>,R=m,res=<span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span>(L&lt;=R)&#123;</div><div class="line">		<span class="keyword">int</span> mid=L+R&gt;&gt;<span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span>(judge(mid))&#123;</div><div class="line">			res=mid;</div><div class="line">			L=mid+<span class="number">1</span>;</div><div class="line">		&#125;<span class="keyword">else</span> R=mid<span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> cas;Rd(cas);</div><div class="line">	<span class="keyword">for</span>(;cas--;)solve();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>有n列火车，每列火车有L节车厢。每节车厢有一种颜色(用小写字母来表示)。有m次交换车厢的操作。求：对于每一列火车，在交换车厢的某一个时刻，与其颜色完全相同的火车最多有多少。</p>
+<p>( $ 2 \le n \le 1000 $ , $ 1 \le L \le 100 $ , $ 0 \le m \le 100000 $ )</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>完全是码农题。。。</p>
+<p>字符串hash是比较显然的。之后对于每一个hash值，我们建一棵Treap维护hash值为该值的字符串的下标。</p>
+<p>用map来存每一棵Treap的根。</p>
+<p>按照题目要求进行操作即可。</p>
+<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(<span class="keyword">int</span>&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1001</span>,P=<span class="number">233</span>;</div><div class="line"><span class="keyword">int</span> stk[N],top,ans[N];</div><div class="line"><span class="keyword">struct</span> Treap&#123;</div><div class="line">	<span class="keyword">struct</span> node&#123;</div><div class="line">		<span class="keyword">int</span> ch[<span class="number">2</span>],key,val,sz,flag;</div><div class="line">	&#125;tree[N];</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span>&amp;p)</span></span>&#123;</div><div class="line">		tree[p].sz=tree[tree[p].ch[<span class="number">0</span>]].sz+tree[tree[p].ch[<span class="number">1</span>]].sz+<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">maintain</span><span class="params">(<span class="keyword">int</span>&amp;p,<span class="keyword">int</span> flag)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> val=tree[p].val;</div><div class="line">		ans[val]=max(ans[val],flag);</div><div class="line">		tree[p].flag=max(tree[p].flag,flag);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span>&amp;p)</span></span>&#123;  </div><div class="line">		<span class="keyword">if</span>(!tree[p].flag)<span class="keyword">return</span>;</div><div class="line">		<span class="keyword">int</span> ls=tree[p].ch[<span class="number">0</span>],rs=tree[p].ch[<span class="number">1</span>];</div><div class="line">		<span class="keyword">if</span>(ls)maintain(ls,tree[p].flag);</div><div class="line">		<span class="keyword">if</span>(rs)maintain(rs,tree[p].flag);</div><div class="line">		tree[p].flag=<span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>&amp;p,<span class="keyword">int</span> d)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> k=tree[p].ch[d^<span class="number">1</span>];</div><div class="line">		pushdown(p),pushdown(k);</div><div class="line">		tree[p].ch[d^<span class="number">1</span>]=tree[k].ch[d];</div><div class="line">		tree[k].ch[d]=p;</div><div class="line">		pushup(p),pushup(k);p=k;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span>&amp;p,<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(!p)&#123;</div><div class="line">			p=stk[top--];</div><div class="line">			tree[p].key=rand(),tree[p].val=x,tree[p].sz=<span class="number">1</span>;</div><div class="line">			tree[p].ch[<span class="number">0</span>]=tree[p].ch[<span class="number">1</span>]=tree[p].flag=<span class="number">0</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			pushdown(p);</div><div class="line">			tree[p].sz++;</div><div class="line">			<span class="keyword">bool</span> d=x&gt;tree[p].val;</div><div class="line">			insert(tree[p].ch[d],x);</div><div class="line">			<span class="keyword">if</span>(tree[p].key&lt;tree[tree[p].ch[d]].key)rotate(p,d^<span class="number">1</span>);</div><div class="line">		&#125;</div><div class="line">		pushup(p);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">erase</span><span class="params">(<span class="keyword">int</span>&amp;p,<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">		pushdown(p);</div><div class="line">		tree[p].sz--;</div><div class="line">		<span class="keyword">if</span>(tree[p].val==x)&#123;</div><div class="line">			<span class="keyword">if</span>(!tree[p].ch[<span class="number">0</span>])stk[++top]=p,p=tree[p].ch[<span class="number">1</span>];</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(!tree[p].ch[<span class="number">1</span>])stk[++top]=p,p=tree[p].ch[<span class="number">0</span>];</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">bool</span> d=tree[tree[p].ch[<span class="number">0</span>]].key&gt;tree[tree[p].ch[<span class="number">1</span>]].key;</div><div class="line">				rotate(p,d);erase(tree[p].ch[d],x);</div><div class="line">			&#125;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">bool</span> d=x&gt;tree[p].val;</div><div class="line">			erase(tree[p].ch[d],x);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(p)pushup(p);	</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">(<span class="keyword">int</span> p)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> tree[p].sz;</div><div class="line">	&#125;</div><div class="line">&#125;T;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</div><div class="line"><span class="built_in">map</span>&lt;ull,<span class="keyword">int</span>&gt;rt;</div><div class="line">ull hash_val[N],p[<span class="number">101</span>];</div><div class="line"><span class="keyword">char</span> str[N][<span class="number">101</span>];</div><div class="line"><span class="keyword">int</span> n,l,m;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">INSERT</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	T.insert(rt[hash_val[x]],x);</div><div class="line">	<span class="keyword">int</span> t=rt[hash_val[x]];</div><div class="line">	T.maintain(t,T.size(t));</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DELETE</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	T.erase(rt[hash_val[x]],x);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	Rd(n),Rd(l),Rd(m);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)stk[++top]=i;</div><div class="line">	p[<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=l;i++)p[i]=p[i<span class="number">-1</span>]*P;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str[i]);</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;l;j++)</div><div class="line">			hash_val[i]=hash_val[i]*P+str[i][j];</div><div class="line">		INSERT(i);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</div><div class="line">		<span class="keyword">int</span> a,b,c,d;</div><div class="line">		Rd(a),Rd(b),Rd(c),Rd(d);</div><div class="line">		DELETE(a);</div><div class="line">		<span class="keyword">if</span>(a!=c)DELETE(c);</div><div class="line">		hash_val[a]=hash_val[a]-p[l-b]*str[a][b<span class="number">-1</span>]+p[l-b]*str[c][d<span class="number">-1</span>];</div><div class="line">		hash_val[c]=hash_val[c]-p[l-d]*str[c][d<span class="number">-1</span>]+p[l-d]*str[a][b<span class="number">-1</span>];</div><div class="line">		swap(str[a][b<span class="number">-1</span>],str[c][d<span class="number">-1</span>]);</div><div class="line">		INSERT(a);</div><div class="line">		<span class="keyword">if</span>(a!=c)INSERT(c);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)DELETE(i);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -300,7 +274,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Inspector/" data-id="ciuhr7k8n000irw9dkiv881ht" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/10/20/POI2008 Trains/" data-id="ciuhr7k8h0009rw9d25dyk1np" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -368,7 +342,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
             
     
-        <a href="https://YummyJay.github.io/2016/10/09/POI2013 Inspector/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/09/POI2013 Inspector/">评论</a>
+        <a href="https://YummyJay.github.io/2016/10/20/POI2008 Trains/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/20/POI2008 Trains/">评论</a>
     
 
         </footer>
@@ -377,19 +351,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         
 <nav id="article-nav">
     
-        <a href="/2016/10/09/POI2013 Polarization/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    POI2013 Polarization
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/10/09/POI2013 Where is the one/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/10/19/POI2008 BBB/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">POI2013 Where is the one</div>
+            <div class="article-nav-title">POI2008 BBB</div>
         </a>
     
 </nav>
@@ -403,7 +368,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     <section id="comments">
     
         
-    <div class="ds-thread" data-thread-key="2016/10/09/POI2013 Inspector/" data-title="POI2013 Inspector" data-url="https://YummyJay.github.io/2016/10/09/POI2013 Inspector/"></div>
+    <div class="ds-thread" data-thread-key="2016/10/20/POI2008 Trains/" data-title="POI2008 Trains" data-url="https://YummyJay.github.io/2016/10/20/POI2008 Trains/"></div>
     <style>
         #ds-thread #ds-reset .ds-textarea-wrapper {
             background: none;
