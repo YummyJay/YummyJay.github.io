@@ -3,18 +3,14 @@
 <head>
     <meta charset="utf-8">
     
-    <title>POI2013 Take-out | YummyJay&#39;s archives</title>
+    <title>标签: BFS | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="POI2013 Take-out">
-<meta property="og:type" content="article">
-<meta property="og:title" content="POI2013 Take-out">
-<meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Take-out/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="YummyJay's archives">
+<meta property="og:url" content="https://YummyJay.github.io/tags/BFS/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
-<meta property="og:description" content="POI2013 Take-out">
-<meta property="og:updated_time" content="2016-10-09T05:56:00.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="POI2013 Take-out">
-<meta name="twitter:description" content="POI2013 Take-out">
+<meta name="twitter:title" content="YummyJay's archives">
     
 
     
@@ -212,213 +208,50 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main"><article id="post-POI2013 Take-out" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
+            <section id="main">
+<div class="timeline timeline-wrap">
+    <div class="timeline-row timeline-row-major">
+        <span class="node"><i class="fa fa-tag"></i></span>
+        <h1 class="title">#BFS</h1>
+    </div>
+    
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            POI2013 Take-out
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2016/10/21/POI2008 Robinson/">POI2008 Robinson</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Take-out/">
-            <time datetime="2016-10-09T05:40:45.000Z" itemprop="datePublished">2016-10-09</time>
+        <a href="/2016/10/21/POI2008 Robinson/">
+            <time datetime="2016-10-21T06:39:25.000Z" itemprop="datePublished">2016-10-21</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/POI/">POI</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/想法/">想法</a>
+        <a class="tag-link" href="/tags/BFS/">BFS</a>, <a class="tag-link" href="/tags/差分前缀和/">差分前缀和</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><em>POI2013 Take-out</em></p>
-<a id="more"></a>
-<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>有n块砖，其中白色是黑色的k倍，求一个消除序列，满足以下条件：</p>
-<p>每次消除k+1个块，其中k块白色，一块黑色，并且这k+1块砖从开始到结束中间不能路过已经消除过的块。</p>
-<p>$PS.$ 想法题啊。<del>完全没有什么知识点</del></p>
-<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>我们把序列中的白色看成1，黑色看成-k。这样的话可以求一个前缀和，最近的两项前缀和相同的id，差一定为k+1。</p>
-<p>于是我们利用一个栈，按顺序把前缀和推进去，每当新进来的元素和之前栈中某一元素权值相同，就把新来的元素连同两元素之间的元素全部弹出，作为一次操作。</p>
-<p>接着，我们倒序输出操作即可。</p>
-<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000001</span>;</div><div class="line"><span class="keyword">int</span> n,k,sum[N],tmp[N];</div><div class="line"><span class="keyword">char</span> str[N];</div><div class="line"><span class="keyword">struct</span> node&#123;</div><div class="line">	<span class="keyword">int</span> id,val;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">int</span> allc;</div><div class="line"><span class="keyword">struct</span> Stack&#123;</div><div class="line">	node num[N];</div><div class="line">	<span class="keyword">int</span> tp;</div><div class="line">	Stack()&#123;</div><div class="line">		tp=<span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> tp==<span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(node v)</span></span>&#123;</div><div class="line">		num[tp++]=v;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</div><div class="line">		tp--;</div><div class="line">	&#125;</div><div class="line">	<span class="function">node <span class="title">top</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> num[tp<span class="number">-1</span>];</div><div class="line">	&#125;</div><div class="line">&#125;stk;</div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;ans[N];</div><div class="line"><span class="keyword">bool</span> used[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%s"</span>,&amp;n,&amp;k,str+<span class="number">1</span>);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(str[i]==<span class="string">'b'</span>)sum[i]=sum[i<span class="number">-1</span>]+<span class="number">1</span>;</div><div class="line">		<span class="keyword">else</span> sum[i]=sum[i<span class="number">-1</span>]-k;</div><div class="line">		tmp[i]=sum[i];</div><div class="line">	&#125;</div><div class="line">	sort(tmp+<span class="number">1</span>,tmp+<span class="number">1</span>+n);</div><div class="line">	<span class="keyword">int</span> len=unique(tmp+<span class="number">1</span>,tmp+<span class="number">1</span>+n)-tmp<span class="number">-1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)sum[i]=lower_bound(tmp+<span class="number">1</span>,tmp+<span class="number">1</span>+len,sum[i])-tmp<span class="number">-1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(used[sum[i]])&#123;</div><div class="line">			ans[++allc].push_back(i);</div><div class="line">			<span class="keyword">while</span>(stk.top().val!=sum[i])&#123;</div><div class="line">				used[stk.top().val]=<span class="literal">false</span>;</div><div class="line">				ans[allc].push_back(stk.top().id),stk.pop();</div><div class="line">			&#125;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			stk.push((node)&#123;i,sum[i]&#125;);</div><div class="line">			used[sum[i]]=<span class="literal">true</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=allc;i&gt;=<span class="number">1</span>;i--)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=ans[i].size()<span class="number">-1</span>;j&gt;=<span class="number">0</span>;j--)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d "</span>,ans[i][j]);</div><div class="line">		&#125;<span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Take-out/" data-id="ciujfpk830010qk9duovd8tjc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://YummyJay.github.io/2016/10/09/POI2013 Take-out/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/09/POI2013 Take-out/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2016/10/09/POI2013 Colorful Chain/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    POI2013 Colorful Chain
-                
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/2016/10/09/POI2013 Taxis/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">POI2013 Taxis</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        
-    <div class="ds-thread" data-thread-key="2016/10/09/POI2013 Take-out/" data-title="POI2013 Take-out" data-url="https://YummyJay.github.io/2016/10/09/POI2013 Take-out/"></div>
-    <style>
-        #ds-thread #ds-reset .ds-textarea-wrapper {
-            background: none;
-        }
-        #ds-reset .ds-avatar img {
-            box-shadow: none;
-        }
-        #ds-reset .ds-gradient-bg {
-            background: #f7f7f7;
-        }
-        #ds-thread #ds-reset li.ds-tab a {
-            border-radius: 3px;
-        }
-        #ds-thread #ds-reset .ds-post-button {
-            color: white;
-            border: none;
-            box-shadow: none;
-            background: #d32;
-            text-shadow: none;
-            font-weight: normal;
-            font-family: 'Microsoft Yahei';
-        }
-        #ds-thread #ds-reset .ds-post-button:hover {
-            color: white;
-            background: #DE594C;
-        }
-        #ds-thread #ds-reset .ds-post-button:active {
-            background: #d32;
-        }
-        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
-            color: white;
-            background: #d32;
-            box-shadow: none;
-            text-shadow: none;
-            font-weight: normal;
-        }
-    </style>
-
-    
-    </section>
-
+</div>
 </section>
             
                 <aside id="sidebar">
