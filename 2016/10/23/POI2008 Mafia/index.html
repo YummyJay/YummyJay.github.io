@@ -3,14 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: 双向链表 | YummyJay&#39;s archives</title>
+    <title>POI2008 Mafia | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="YummyJay's archives">
-<meta property="og:url" content="https://YummyJay.github.io/tags/双向链表/index.html">
+    <meta name="description" content="POI2008 Mafia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POI2008 Mafia">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/23/POI2008 Mafia/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
+<meta property="og:description" content="POI2008 Mafia">
+<meta property="og:updated_time" content="2016-10-23T14:09:12.745Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YummyJay's archives">
+<meta name="twitter:title" content="POI2008 Mafia">
+<meta name="twitter:description" content="POI2008 Mafia">
     
 
     
@@ -208,50 +212,222 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#双向链表</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-POI2008 Mafia" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/08/POI2013 Price List/">POI2013 Price List</a>
+        <h1 class="article-title" itemprop="name">
+            POI2008 Mafia
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/08/POI2013 Price List/">
-            <time datetime="2016-10-08T14:36:14.000Z" itemprop="datePublished">2016-10-08</time>
+        <a href="/2016/10/23/POI2008 Mafia/">
+            <time datetime="2016-10-23T07:21:06.000Z" itemprop="datePublished">2016-10-23</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/POI/">POI</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/双向链表/">双向链表</a>, <a class="tag-link" href="/tags/最短路/">最短路</a>
+        <a class="tag-link" href="/tags/基环外向树/">基环外向树</a>, <a class="tag-link" href="/tags/拓扑排序/">拓扑排序</a>, <a class="tag-link" href="/tags/贪心/">贪心</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><em>POI2008 Mafia</em></p>
+<a id="more"></a>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>有n个人，每一个人有一把手枪。一开始，所有的人都选定一个人瞄准(有可能瞄准自己)。然后他们按照某一个顺序开枪，且任意时刻只有一个人开枪。因此，对于不同的开枪顺序，最后死掉的人也不同。问最后死亡人数的最小和最大可能值。</p>
+<p>( $n\le 10^6$ )</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>首先很容易看出，图是一个基环外向树，那么我们就可以借助一些基环外向树的性质来解题了。</p>
+<p>对于最大的可能人数，我们比较好得到。只要让存活人数最少就可以了，那么就让那些一定不会死的人活下来，其他人都可以杀掉。</p>
+<p>不会死的人有两种：</p>
+<ol>
+<li>入度为0的人。由于没有人拿枪瞄准他们，显然不会死。</li>
+<li>当一个基环外向树没有”树枝”，而只有中间那一个环时，我们没有办法将环上的人全部杀完，总要留下一个。留下的那个就可以不用死。(中间的环不能是自环，不然当然可以把环上的人杀完)</li>
+</ol>
+<p>利用拓扑排序随便搞一下，这部分就可以解决了。</p>
+<p>接下来看看最小的可能人数：</p>
+<p>一个人会不会死关键看是否有一个没死的人拿枪指着他。</p>
+<p>也就是说，如果有一个人没死，那么被他指的人一定会死。</p>
+<p>首先，入度为零的人，一定不会死，但是被他指的人全都会死。</p>
+<p>为了让活着的人尽量多，我们不妨让死了的人都不开枪。</p>
+<p>那么对于一个必死的人，他所瞄准的人都少了一次被杀死的机会，可以把它们的入度减一。</p>
+<p>如果入度减为了零，说明所有的威胁都被排除，此人已经死不了了。</p>
+<p>由此，我们可以把基环外向树上的”树枝”全部清理掉。</p>
+<p>对于留下的环，我们从环上任意一个人开始，让他死，那么环也就可以流动起来了。</p>
+<hr>
+<p>其实最小值也可以用树形dp来写。</p>
+<p>题目转化一下就可以变为：</p>
+<p>我们把基环外向树的边都变为双向的。然后在树上取一些点(表示这些点活着)，且两个被取的点不能相邻，最大化取的点的数量。</p>
+<hr>
+<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(<span class="keyword">int</span>&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000005</span>;</div><div class="line"><span class="keyword">int</span> n,aim[N],cnt[N],ans;</div><div class="line"><span class="keyword">bool</span> used[N];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">work</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> c)</span></span>&#123;</div><div class="line">	<span class="keyword">if</span>(used[p])<span class="keyword">return</span>;</div><div class="line">	used[p]=<span class="literal">true</span>;</div><div class="line">	ans+=c;</div><div class="line">	<span class="keyword">if</span>(!(--cnt[aim[p]])||c)work(aim[p],c^<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve_min</span><span class="params">()</span></span>&#123;</div><div class="line">	ans=<span class="number">0</span>;</div><div class="line">	<span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span>(cnt));</div><div class="line">	<span class="built_in">memset</span>(used,<span class="number">0</span>,<span class="keyword">sizeof</span>(used));</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cnt[aim[i]]++;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">if</span>(!cnt[i])work(i,<span class="number">1</span>);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)work(i,<span class="number">0</span>);</div><div class="line">	<span class="keyword">return</span> n-ans;</div><div class="line">&#125;</div><div class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;que;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">check_loop</span><span class="params">(<span class="keyword">int</span> p)</span></span>&#123;</div><div class="line">	<span class="keyword">bool</span> flag=<span class="literal">false</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> pre=p;flag|=used[p],aim[p]!=pre;cnt[aim[p]]--,p=aim[p]);</div><div class="line">	<span class="keyword">if</span>(!flag)ans++;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve_max</span><span class="params">()</span></span>&#123;</div><div class="line">	ans=<span class="number">0</span>;</div><div class="line">	<span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span>(cnt));</div><div class="line">	<span class="built_in">memset</span>(used,<span class="number">0</span>,<span class="keyword">sizeof</span>(used));</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cnt[aim[i]]++;</div><div class="line">	<span class="keyword">while</span>(!que.empty())que.pop();</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">if</span>(!cnt[i])que.push(i),ans++;</div><div class="line">	<span class="keyword">while</span>(!que.empty())&#123;</div><div class="line">		<span class="keyword">int</span> p=que.front();que.pop();</div><div class="line">		<span class="keyword">if</span>(!(--cnt[aim[p]]))que.push(aim[p]);</div><div class="line">		<span class="keyword">else</span> used[aim[p]]=<span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">if</span>(cnt[i]&amp;&amp;i!=aim[i])check_loop(i);</div><div class="line">	<span class="keyword">return</span> n-ans;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,solve_min(),solve_max());</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	Rd(n);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)Rd(aim[i]);</div><div class="line">	<span class="keyword">return</span> solve();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="https://YummyJay.github.io/2016/10/23/POI2008 Mafia/" data-id="ciumpomnl0006s49d802aehrz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://YummyJay.github.io/2016/10/23/POI2008 Mafia/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/23/POI2008 Mafia/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/10/22/noip2016初赛/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">noip2016初赛</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/10/23/POI2008 Mafia/" data-title="POI2008 Mafia" data-url="https://YummyJay.github.io/2016/10/23/POI2008 Mafia/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
