@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>noip2016初赛 | YummyJay&#39;s archives</title>
+    <title>POI2008 The Great Escape | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="noip2016初赛">
+    <meta name="description" content="POI2008 The Great Escape">
 <meta property="og:type" content="article">
-<meta property="og:title" content="noip2016初赛">
-<meta property="og:url" content="https://YummyJay.github.io/2016/10/22/noip2016初赛/index.html">
+<meta property="og:title" content="POI2008 The Great Escape">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/25/POI2008 The Great Escape/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
-<meta property="og:description" content="noip2016初赛">
-<meta property="og:updated_time" content="2016-10-22T11:39:03.290Z">
+<meta property="og:description" content="POI2008 The Great Escape">
+<meta property="og:updated_time" content="2016-10-25T14:04:38.471Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="noip2016初赛">
-<meta name="twitter:description" content="noip2016初赛">
+<meta name="twitter:title" content="POI2008 The Great Escape">
+<meta name="twitter:description" content="POI2008 The Great Escape">
     
 
     
@@ -212,7 +212,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main"><article id="post-noip2016初赛" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-POI2008 The Great Escape" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +220,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                 
     
         <h1 class="article-title" itemprop="name">
-            noip2016初赛
+            POI2008 The Great Escape
         </h1>
     
 
@@ -229,8 +229,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/22/noip2016初赛/">
-            <time datetime="2016-10-22T11:31:28.000Z" itemprop="datePublished">2016-10-22</time>
+        <a href="/2016/10/25/POI2008 The Great Escape/">
+            <time datetime="2016-10-25T13:23:00.000Z" itemprop="datePublished">2016-10-25</time>
         </a>
     </div>
 
@@ -238,13 +238,13 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/杂/">杂</a>
+        <a class="article-category-link" href="/categories/POI/">POI</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/杂/">杂</a>
+        <a class="tag-link" href="/tags/dp/">dp</a>
     </div>
 
                     </div>
@@ -255,13 +255,31 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><em>noip2016初赛</em></p>
+            <p><em>POI2008 The Great Escape</em></p>
 <a id="more"></a>
-<p>总觉得初赛很折磨人，稍微一个不小心就可能会“光荣退役”。</p>
-<p>作为一个高二才参加第一次初赛的蒟蒻，这一次初赛更显得有些令人担忧，就怕还没开始就已经结束。</p>
-<p>还好，并没有遇到什么大的问题，完善程序第一个空写错扣了两分，其他的倒也都没什么了。</p>
-<p>总算我的OI生涯没有因为初赛而终止，复赛加油！！！</p>
-<p>以上。</p>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>给出一个$n \times m$的地图，计算从(n,1)走到(y,x)的路径条数。答案对k取模，走过的点不能再走，转弯只能向右转。（有的格子可能存在障碍，不能走）</p>
+<p>($ n,m \le 100$)</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>借鉴了Sengxian的题解</p>
+<p><a href="https://blog.sengxian.com/solutions/bzoj-1126" target="_blank" rel="external">戳这儿</a></p>
+<p>模拟数据，我们不难发现，路径都是绕着圈圈到达的。</p>
+<p>由于走过的点不能再走，并且转弯只能向右转，因而，路径的圈一定是越转越小的。</p>
+<p>为了方便，我们计算从(y,x)走到(n,1)的方案数，转弯只能向左转。这样圈一定是越转越大的。</p>
+<p>定义dp[x1][y1][x2][y2][0~4]表示从(y,x)出发，所走的路径上界为x1，下界为x2，左界为y1，右界为y2，终点分别为(x1,y2)、(x2,y2)、(x2,y1)、(x1,y1)的可行路径数。</p>
+<p>看右上角的点:</p>
+<ul>
+<li>dp[x1][y1][x2][y2][0] $ \leftarrow  $ dp[x1][y1][x2][y2-1][1]   （从右下角的点向左转）</li>
+<li>dp[x1][y1][x2][y2][0] $ \leftarrow  $ dp[x1+1][y1][x2][y2][0]   （从右上角的点直接走）</li>
+</ul>
+<p>同理可以得到其余三个角的转移方程：</p>
+<ul>
+<li>dp[x1][y1][x2][y2][1] $ \leftarrow  $ dp[x1][y1][x2-1][y2][2] + dp[x1][y1][x2][y2-1][1]</li>
+<li>dp[x1][y1][x2][y2][2] $ \leftarrow  $ dp[x1][y1+1][x2][y2][3] + dp[x1][y1][x2-1][y2][2]</li>
+<li>dp[x1][y1][x2][y2][3] $ \leftarrow  $ dp[x1+1][y1][x2][y2][0] + dp[x1][y1+1][x2][y2][3]</li>
+</ul>
+<p>设立初值比较麻烦，Sengxian的方法是将起点 (y,x)需要的状态设置为 1（哪怕这个状态不合格），这样比较方便。</p>
+<p>这样一来，时间复杂度为$O(n^4)$ ，空间上可以用滚动数组来优化，复杂度为$O(n^3)$。</p>
+<p>PS. 状态的定义比较奇妙，蛮神的一道dp题。</p>
+<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">#include&lt;string.h&gt;</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">using namespace std;</div><div class="line">const int N=101;</div><div class="line">short n,m,x,y,lin[N][N],row[N][N];</div><div class="line">int dp[2][4][N][N][N],mod,ans;</div><div class="line">inline void Mod(int&amp;a,int b)&#123;</div><div class="line">    if((a+=b)&gt;=mod)a-=mod;</div><div class="line">&#125;</div><div class="line">int main()&#123;</div><div class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;mod&gt;&gt;y&gt;&gt;x;</div><div class="line">    getchar();</div><div class="line">    for(register short i=1;i&lt;=n;++i)&#123;</div><div class="line">        for(register short j=1;j&lt;=m;++j)&#123;</div><div class="line">            char str=getchar();</div><div class="line">            lin[i][j]=lin[i][j-1]+(str=='+');</div><div class="line">            row[j][i]=row[j][i-1]+(str=='+');</div><div class="line">        &#125;</div><div class="line">        getchar();</div><div class="line">    &#125;</div><div class="line">    bool cur=0;</div><div class="line">    register int  (*a)[N][N][N] = dp[cur], (*b)[N][N][N] = dp[cur^1];</div><div class="line">    a[1][y][x][y-1]=1;</div><div class="line">    a[2][y][x-1][y]=1;</div><div class="line">    a[3][y+1][x][y]=1;</div><div class="line">    b[0][y][x][y]=1;</div><div class="line">    for(register short x1=x;x1&gt;=1;--x1,swap(a,b))&#123;</div><div class="line">        if(x1!=x)memset(a,0,sizeof dp[0]);</div><div class="line">        for(register short y1=y;y1&gt;=1;--y1)&#123;</div><div class="line">            for(register short x2=x;x2&lt;=n;++x2)&#123;</div><div class="line">                for(register short y2=y;y2&lt;=m;++y2)&#123;</div><div class="line">                    if(row[y2][x2]-row[y2][x1-1]==x2-x1+1)&#123;</div><div class="line">                        a[0][y1][x2][y2]=a[1][y1][x2][y2-1];</div><div class="line">                        if(x1&lt;x2)Mod(a[0][y1][x2][y2],b[0][y1][x2][y2]);</div><div class="line">                    &#125;</div><div class="line">                    if(lin[x2][y2]-lin[x2][y1-1]==y2-y1+1)&#123;</div><div class="line">                        a[1][y1][x2][y2]=a[2][y1][x2-1][y2];</div><div class="line">                        if(y1&lt;y2)Mod(a[1][y1][x2][y2],a[1][y1][x2][y2-1]);</div><div class="line">                    &#125;</div><div class="line">                    if(row[y1][x2]-row[y1][x1-1]==x2-x1+1)&#123;</div><div class="line">                        a[2][y1][x2][y2]=a[3][y1+1][x2][y2];</div><div class="line">                        if(x1&lt;x2)Mod(a[2][y1][x2][y2],a[2][y1][x2-1][y2]);</div><div class="line">                    &#125;</div><div class="line">                    if(lin[x1][y2]-lin[x1][y1-1]==y2-y1+1)&#123;</div><div class="line">                        a[3][y1][x2][y2]=b[0][y1][x2][y2];</div><div class="line">                        if(y1&lt;y2)Mod(a[3][y1][x2][y2],a[3][y1+1][x2][y2]);</div><div class="line">                    &#125;</div><div class="line">                    if(x2==n&amp;&amp;y1==1)Mod(ans,a[2][y1][x2][y2]);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    printf("%d\n",ans);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -272,7 +290,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/2016/10/22/noip2016初赛/" data-id="ciupkesl8001ybk9ds4ylh1o6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/10/25/POI2008 The Great Escape/" data-id="ciupkesld0025bk9dwnvsx83r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -340,7 +358,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
             
     
-        <a href="https://YummyJay.github.io/2016/10/22/noip2016初赛/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/22/noip2016初赛/">评论</a>
+        <a href="https://YummyJay.github.io/2016/10/25/POI2008 The Great Escape/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/25/POI2008 The Great Escape/">评论</a>
     
 
         </footer>
@@ -349,19 +367,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         
 <nav id="article-nav">
     
-        <a href="/2016/10/23/POI2008 Mafia/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    POI2008 Mafia
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/10/21/POI2008 Robinson/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/10/25/20161025/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">POI2008 Robinson</div>
+            <div class="article-nav-title">20161025</div>
         </a>
     
 </nav>
@@ -375,7 +384,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     <section id="comments">
     
         
-    <div class="ds-thread" data-thread-key="2016/10/22/noip2016初赛/" data-title="noip2016初赛" data-url="https://YummyJay.github.io/2016/10/22/noip2016初赛/"></div>
+    <div class="ds-thread" data-thread-key="2016/10/25/POI2008 The Great Escape/" data-title="POI2008 The Great Escape" data-url="https://YummyJay.github.io/2016/10/25/POI2008 The Great Escape/"></div>
     <style>
         #ds-thread #ds-reset .ds-textarea-wrapper {
             background: none;
