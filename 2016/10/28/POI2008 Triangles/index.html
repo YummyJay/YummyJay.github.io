@@ -3,14 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: noioj | YummyJay&#39;s archives</title>
+    <title>POI2008 Triangles | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="YummyJay's archives">
-<meta property="og:url" content="https://YummyJay.github.io/categories/noioj/index.html">
+    <meta name="description" content="POI2008 Triangles">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POI2008 Triangles">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/28/POI2008 Triangles/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
+<meta property="og:description" content="POI2008 Triangles">
+<meta property="og:updated_time" content="2016-10-28T13:30:13.626Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YummyJay's archives">
+<meta name="twitter:title" content="POI2008 Triangles">
+<meta name="twitter:description" content="POI2008 Triangles">
     
 
     
@@ -208,50 +212,210 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">noioj</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-POI2008 Triangles" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/28/noioj Stupid cat & Doge/">noioj Stupid cat &amp; Doge</a>
+        <h1 class="article-title" itemprop="name">
+            POI2008 Triangles
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/28/noioj Stupid cat & Doge/">
-            <time datetime="2016-10-28T01:19:53.000Z" itemprop="datePublished">2016-10-28</time>
+        <a href="/2016/10/28/POI2008 Triangles/">
+            <time datetime="2016-10-28T13:17:15.000Z" itemprop="datePublished">2016-10-28</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/noioj/">noioj</a>
+        <a class="article-category-link" href="/categories/POI/">POI</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/分治/">分治</a>
+        <a class="tag-link" href="/tags/计算几何/">计算几何</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><em>POI2008 Triangles</em></p>
+<a id="more"></a>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>平面上有n个点，求出所有以这n个点为顶点的三角形的面积和。</p>
+<p>($n \le 3000$)</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>首先可以明确，我们用向量的叉积来获得三角形的面积。</p>
+<p>如果直接枚举三个点，分别算面积的话，复杂度为$O(n^3)$显然会TLE。</p>
+<p>但由于向量叉积的符号有正有负，我们没法利用前缀和之类的技巧来优化。</p>
+<p>于是，可以这样:</p>
+<p>先把点从左到右排序一下，每次取最左边的一个点。</p>
+<p>把该点与该点右边的点连出的向量全部记录下来。</p>
+<p>那么接下来就是算这些向量两两的叉积。</p>
+<p>为了避免正负号的干扰，我们首先将它们极角排序。</p>
+<p>之后即可利用前缀和来优化了。</p>
+<p>综上，总的时间复杂度为$O(n^2logn)$ 。</p>
+<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(ll&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">3005</span>;</div><div class="line"><span class="keyword">struct</span> Point&#123;</div><div class="line">	ll x,y;</div><div class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt;(<span class="keyword">const</span> Point&amp;a)<span class="keyword">const</span>&#123;</div><div class="line">		<span class="keyword">if</span>(x!=a.x)<span class="keyword">return</span> x&lt;a.x;</div><div class="line">		<span class="keyword">return</span> y&lt;a.y;</div><div class="line">	&#125;</div><div class="line">&#125;pos[N];</div><div class="line"><span class="keyword">typedef</span> Point Vector; </div><div class="line">Vector vec[N],sum;</div><div class="line">ll <span class="keyword">operator</span>* (<span class="keyword">const</span> Vector&amp;a,<span class="keyword">const</span> Vector&amp;b)&#123;</div><div class="line">	<span class="keyword">return</span> a.x*b.y-a.y*b.x;	</div><div class="line">&#125;</div><div class="line">Vector <span class="keyword">operator</span>+ (<span class="keyword">const</span> Point&amp;a,<span class="keyword">const</span> Point&amp;b)&#123;</div><div class="line">	<span class="keyword">return</span> (Vector)&#123;a.x+b.x,a.y+b.y&#125;;</div><div class="line">&#125;</div><div class="line">Vector <span class="keyword">operator</span>- (<span class="keyword">const</span> Point&amp;a,<span class="keyword">const</span> Point&amp;b)&#123;</div><div class="line">	<span class="keyword">return</span> (Vector)&#123;a.x-b.x,a.y-b.y&#125;;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Vector&amp;a,<span class="keyword">const</span> Vector&amp;b)</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> a*b&gt;<span class="number">0</span>;</div><div class="line">&#125;</div><div class="line">ll n,len;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	Rd(n);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		Rd(pos[i].x),Rd(pos[i].y);</div><div class="line">	sort(pos+<span class="number">1</span>,pos+<span class="number">1</span>+n);</div><div class="line">	ll ans=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;<span class="comment">//原点 </span></div><div class="line">		len=sum.x=sum.y=<span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">			vec[++len]=pos[j]-pos[i];</div><div class="line">			sum=sum+vec[len];</div><div class="line">		&#125;</div><div class="line">		sort(vec+<span class="number">1</span>,vec+<span class="number">1</span>+len,cmp);<span class="comment">//极角排序 </span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=len;j++)&#123;</div><div class="line">			sum=sum-vec[j];</div><div class="line">			ans+=vec[j]*sum;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(ans&amp;<span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">"%lld.5\n"</span>,ans/<span class="number">2</span>);</div><div class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%lld.0\n"</span>,ans/<span class="number">2</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="https://YummyJay.github.io/2016/10/28/POI2008 Triangles/" data-id="ciutthpyf0010js9d9cl8oyga" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://YummyJay.github.io/2016/10/28/POI2008 Triangles/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/28/POI2008 Triangles/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/10/28/POI2008 Subdivision of Kingdom/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">POI2008 Subdivision of Kingdom</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/10/28/POI2008 Triangles/" data-title="POI2008 Triangles" data-url="https://YummyJay.github.io/2016/10/28/POI2008 Triangles/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
