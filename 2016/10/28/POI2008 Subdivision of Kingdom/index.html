@@ -3,14 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2016 | YummyJay&#39;s archives</title>
+    <title>POI2008 Subdivision of Kingdom | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="YummyJay's archives">
-<meta property="og:url" content="https://YummyJay.github.io/archives/2016/page/3/index.html">
+    <meta name="description" content="POI2008 Subdivision of Kingdom">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POI2008 Subdivision of Kingdom">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/28/POI2008 Subdivision of Kingdom/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
+<meta property="og:description" content="POI2008 Subdivision of Kingdom">
+<meta property="og:updated_time" content="2016-10-28T10:31:17.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YummyJay's archives">
+<meta name="twitter:title" content="POI2008 Subdivision of Kingdom">
+<meta name="twitter:description" content="POI2008 Subdivision of Kingdom">
     
 
     
@@ -208,378 +212,212 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-POI2008 Subdivision of Kingdom" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Where is the one/">POI2013 Where is the one</a>
+        <h1 class="article-title" itemprop="name">
+            POI2008 Subdivision of Kingdom
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Where is the one/">
-            <time datetime="2016-10-09T08:17:42.000Z" itemprop="datePublished">2016-10-09</time>
+        <a href="/2016/10/28/POI2008 Subdivision of Kingdom/">
+            <time datetime="2016-10-28T09:05:51.000Z" itemprop="datePublished">2016-10-28</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/POI/">POI</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/二分/">二分</a>
+        <a class="tag-link" href="/tags/dfs/">dfs</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Multidrink/">POI2013 Multidrink</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><em>POI2008 Subdivision of Kingdom</em></p>
+<a id="more"></a>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>给出一个具有n个节点的无向图，将其分为两个点集S1和S2，这两个集合的点的个数一样多，使得连接它们的边最少。给出一种方案。</p>
+<p>($ n \le 26$)</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>点的数目很少，我们发现哪怕把所有的方案都枚举下来，也就$ \frac {C( n, \frac n 2 )} {2}$种。当n=26时，不过才500w。</p>
+<p>但用一般的方法，我们都要在此基础上，用O(n)的复杂度来计算当前的方案的连接边数，这样显然会TLE。</p>
+<p>我们可以dfs，维护两个点集，并时时维护连接边数。</p>
+<p>首先把所有点都放到S2中，并枚举一个数字，把它从S2中拿出，放到S1中。</p>
+<p>设取出来的点为p，那么对答案的影响就是，S2中与p有边的点使答案增加，S1中与p有边的点使答案减少。</p>
+<p>于是我们需要快速求出一个点与一个点集有多少条相连的边。</p>
+<p>我们把一个点连出去的边用一个二进制数表示，把一个点集也用一个二进制数表示，把两个数字”&amp;”一下，数有几个1即可。</p>
+<p>在数1时，我一开始十分无脑，不停lowbit，暴力去求，结果居然AC了。</p>
+<p>但其实有更好的办法，可以先预处理出每一个二进制数有几个1。</p>
+<p>但倘若预处理26位的二进制数，显然空间不够，并且时间似乎也不够。</p>
+<p>我们可以预处理出13位的二进制数，算一个数有几个1时分成两段算即可。</p>
+<p>综上题目即可解。</p>
+<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">30</span>;</div><div class="line"><span class="keyword">int</span> n,m,mi;</div><div class="line"><span class="keyword">int</span> sta,sta1,sta2,edge[N];</div><div class="line"><span class="keyword">int</span> cnt[<span class="number">10005</span>];</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) (x&amp;(-x))</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">cnt_one</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;<span class="comment">//暴力求有几个1</span></div><div class="line">	<span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(;num;num-=lowbit(num))res++;</div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;<span class="comment">//分成两段，利用预处理的数组O(1)求1的个数</span></div><div class="line">	<span class="keyword">int</span> left=num&gt;&gt;<span class="number">13</span>;</div><div class="line">	<span class="keyword">int</span> right=num^(left&lt;&lt;<span class="number">13</span>);</div><div class="line">	<span class="keyword">return</span> cnt[left]+cnt[right];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> pos,<span class="keyword">int</span> ans)</span></span>&#123;</div><div class="line">	<span class="keyword">if</span>(num==n/<span class="number">2</span>)&#123;</div><div class="line">		<span class="keyword">if</span>(mi&gt;ans)mi=ans,sta=sta1;</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(n-pos+<span class="number">1</span>+num&lt;n/<span class="number">2</span>)<span class="keyword">return</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=pos;i&lt;n;i++)&#123;</div><div class="line">		sta1|=<span class="number">1</span>&lt;&lt;i,sta2^=<span class="number">1</span>&lt;&lt;i;</div><div class="line">		<span class="keyword">int</span> del=count(sta1&amp;edge[i]);</div><div class="line">		<span class="keyword">int</span> add=count(sta2&amp;edge[i]);</div><div class="line">		solve(num+<span class="number">1</span>,i+<span class="number">1</span>,ans+add-del);</div><div class="line">		sta1^=<span class="number">1</span>&lt;&lt;i,sta2|=<span class="number">1</span>&lt;&lt;i;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">	mi=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,a,b;i&lt;=m;i++)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</div><div class="line">		edge[a<span class="number">-1</span>]|=<span class="number">1</span>&lt;&lt;(b<span class="number">-1</span>);</div><div class="line">		edge[b<span class="number">-1</span>]|=<span class="number">1</span>&lt;&lt;(a<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)sta2|=<span class="number">1</span>&lt;&lt;i;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span>&lt;&lt;<span class="number">13</span>);i++)cnt[i]=cnt_one(i);</div><div class="line">	solve(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">	<span class="keyword">bool</span> flag=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(sta&amp;(<span class="number">1</span>&lt;&lt;i))&#123;</div><div class="line">			<span class="keyword">if</span>(flag)<span class="built_in">printf</span>(<span class="string">" %d"</span>,i+<span class="number">1</span>);</div><div class="line">			<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d"</span>,i+<span class="number">1</span>);</div><div class="line">			flag=<span class="literal">true</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Multidrink/">
-            <time datetime="2016-10-09T07:11:02.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/构造/">构造</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Tower Defense game/">POI2013 Tower Defense game</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Tower Defense game/">
-            <time datetime="2016-10-09T06:58:42.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/想法/">想法</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Watering can/">POI2013 Watering can</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Watering can/">
-            <time datetime="2016-10-09T06:07:42.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BIT/">BIT</a>, <a class="tag-link" href="/tags/线段树/">线段树</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Colorful Chain/">POI2013 Colorful Chain</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Colorful Chain/">
-            <time datetime="2016-10-09T05:59:29.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hash/">hash</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Take-out/">POI2013 Take-out</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Take-out/">
-            <time datetime="2016-10-09T05:40:45.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/想法/">想法</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Taxis/">POI2013 Taxis</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Taxis/">
-            <time datetime="2016-10-09T03:27:01.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/贪心/">贪心</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Triumphal arch/">POI2013 Triumphal arch</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Triumphal arch/">
-            <time datetime="2016-10-09T02:59:25.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/二分/">二分</a>, <a class="tag-link" href="/tags/贪心/">贪心</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Bytecomputer/">POI2013 Bytecomputer</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Bytecomputer/">
-            <time datetime="2016-10-09T02:40:59.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/dp/">dp</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/09/POI2013 Tales of seafaring/">POI2013 Tales of seafaring</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Tales of seafaring/">
-            <time datetime="2016-10-09T02:07:23.000Z" itemprop="datePublished">2016-10-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/最短路/">最短路</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2016/page/2/">&laquo; 上一页</a><a class="page-number" href="/archives/2016/">1</a><a class="page-number" href="/archives/2016/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2016/page/4/">4</a><a class="extend next" rel="next" href="/archives/2016/page/4/">下一页 &raquo;</a>
-    </nav>
+    <a data-url="https://YummyJay.github.io/2016/10/28/POI2008 Subdivision of Kingdom/" data-id="ciutn52tg000rlk9dlwfsmqss" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://YummyJay.github.io/2016/10/28/POI2008 Subdivision of Kingdom/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/28/POI2008 Subdivision of Kingdom/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/10/28/POI2008 Station/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">POI2008 Station</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/10/28/POI2008 Subdivision of Kingdom/" data-title="POI2008 Subdivision of Kingdom" data-url="https://YummyJay.github.io/2016/10/28/POI2008 Subdivision of Kingdom/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
