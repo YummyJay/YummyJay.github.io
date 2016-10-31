@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>POI2013 Taxis | YummyJay&#39;s archives</title>
+    <title>POI2008 Plot purchase | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="POI2013 Taxis">
+    <meta name="description" content="POI2008 Plot purchase">
 <meta property="og:type" content="article">
-<meta property="og:title" content="POI2013 Taxis">
-<meta property="og:url" content="https://YummyJay.github.io/2016/10/09/POI2013 Taxis/index.html">
+<meta property="og:title" content="POI2008 Plot purchase">
+<meta property="og:url" content="https://YummyJay.github.io/2016/10/31/POI2008 Plot purchase/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
-<meta property="og:description" content="POI2013 Taxis">
-<meta property="og:updated_time" content="2016-10-09T05:36:00.801Z">
+<meta property="og:description" content="POI2008 Plot purchase">
+<meta property="og:updated_time" content="2016-10-31T11:43:23.668Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="POI2013 Taxis">
-<meta name="twitter:description" content="POI2013 Taxis">
+<meta name="twitter:title" content="POI2008 Plot purchase">
+<meta name="twitter:description" content="POI2008 Plot purchase">
     
 
     
@@ -212,7 +212,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main"><article id="post-POI2013 Taxis" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-POI2008 Plot purchase" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +220,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                 
     
         <h1 class="article-title" itemprop="name">
-            POI2013 Taxis
+            POI2008 Plot purchase
         </h1>
     
 
@@ -229,8 +229,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/09/POI2013 Taxis/">
-            <time datetime="2016-10-09T03:27:01.000Z" itemprop="datePublished">2016-10-09</time>
+        <a href="/2016/10/31/POI2008 Plot purchase/">
+            <time datetime="2016-10-31T11:11:46.000Z" itemprop="datePublished">2016-10-31</time>
         </a>
     </div>
 
@@ -244,7 +244,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/贪心/">贪心</a>
+        <a class="tag-link" href="/tags/最大子矩形/">最大子矩形</a>, <a class="tag-link" href="/tags/构造/">构造</a>
     </div>
 
                     </div>
@@ -255,14 +255,30 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><em>POI2013 Taxis</em><br><a id="more"></a></p>
-<h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h4><p>你当前在0处，d处有一个车站，你的家在m处。你现在想坐出租车回家，但出租车只会从车站出发，并且第i辆车只被允许开$x_i$的距离(是路程，而不是位移)。问你回家最少要几辆出租车。</p>
-<p>$PS.$ 比较简单的贪心题。</p>
-<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>有一个贪心思路比较显然：你在到达车站前，派出的车的$x_i$越大，我们所走的重复的路段越小。因而为了尽快到达d，我们可以直接按照$x_i$从大到小依次打车。</p>
-<p>但这样却并不能保证我们能到家。因为我们可能为了用尽量少的车到d而把大的车都用完了，以至于没有一辆车能将你从d送到m去了。</p>
-<p>那怎么办呢？我们发现，若你在d，只需要一辆$x_i&gt;=m-d$的车即可回家。因而一开始，我们给车排序后，先预留一辆大于等于m-d的最小的车。用其他的车先使自己到达d即可。</p>
-<p>(有可能用其他的车可以直接到家，这样就不用加上预留的车的代价了)</p>
-<h4 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(ll&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">500005</span>;</div><div class="line"><span class="keyword">int</span> n;</div><div class="line">ll m,d,num[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</div><div class="line">	sort(num+<span class="number">1</span>,num+<span class="number">1</span>+n);</div><div class="line">	<span class="keyword">int</span> id=lower_bound(num+<span class="number">1</span>,num+<span class="number">1</span>+n,m-d)-num;</div><div class="line">	ll p=<span class="number">0</span>;<span class="keyword">int</span> cnt=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</div><div class="line">		<span class="keyword">if</span>(i==id)<span class="keyword">continue</span>;</div><div class="line">		<span class="keyword">if</span>(p&lt;d)&#123;</div><div class="line">			<span class="keyword">if</span>(num[i]&gt;d-p)&#123;</div><div class="line">				p+=num[i]-d+p;</div><div class="line">				cnt++;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">break</span>;	</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(p&lt;d)&#123;</div><div class="line">		<span class="keyword">if</span>(num[id]&lt;m-p+d-p)<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> cnt+<span class="number">1</span>;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">if</span>(p&lt;m)<span class="keyword">return</span> cnt+<span class="number">1</span>;</div><div class="line">		<span class="keyword">return</span> cnt;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">cin</span>&gt;&gt;m&gt;&gt;d&gt;&gt;n;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)Rd(num[i]);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,solve());</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p><em>POI2008 Plot purchase</em></p>
+<a id="more"></a>
+<h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h4><p>给出一个$n \times n$的地图，每一个格子有一个价格，找一个矩形，使其价格总和位于$[k,2 \times k]$ 。</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>首先看一下$1 \times n$ 的情况，如果有一个格子价值在$[k,2 \times k]$ 之内，那么可以直接输出该点。</p>
+<p>其次，若所有格子的和小于k，显然不满足。</p>
+<p>接下来，只要没有一个数大于$2 \times k$ 则一定可以构造出可行解。</p>
+<p>因为没有一个数大于等于$2 \times k$ ，而又没有一个格子价值在$[k,2 \times k]$ 之内，说明所有格子小于k。</p>
+<p>而所有格子的和大于等于k，我们把前缀和写出来，总可以找到一个前缀的和在给定范围内。因为所有格子小于k，这意味着相邻两个前缀和相差并不会大于等于k，因而总可以有解。</p>
+<p>因而对于$1 \times n$ 的情况，只要枚举每一个不含大于等于$2 \times k$的数的区间，并判定是否可行即可。</p>
+<p>我们发现，这个方法是可以推广到二维矩形上的。</p>
+<p>同样的，如果有一个格子价值在$[k,2 \times k]$ 之内，那么可以直接输出该点。</p>
+<p>其次，若所有格子的和小于k，显然不满足。</p>
+<p>接下来，只要没有一个数大于$2 \times k$ 则一定可以构造出可行解。</p>
+<p>首先我们枚举每一行，若这一行的和大于等于k，说明可以在该行找到解。(也就是上面$1 \times n$ 的情况)</p>
+<p>若没有找到解，说明每一行的和都小于k。</p>
+<p>那么我们可以把这一层压成一个数字。(也就是说，要取就一整行地取)</p>
+<p>这样，每一个被压缩的数字都小于k，但它们的和大于等于k，与上面同理，我们可知，一定可以构造出可行解。</p>
+<p>综上，只要一个矩形和大于等于k，并且没有一个数大于$2\times k$，我们总可以构造出解。</p>
+<p>那么，我们不妨把每一个大于等$2\times k$的数看做障碍。</p>
+<p>那么，我们利用最大子矩形算法枚举每一个极大子矩形，看看是否满足即可。</p>
+<p>综上，复杂度为$O(n^2)$。</p>
+<p>PS. 关于最大子矩形，推荐一篇论文。</p>
+<p><a href="http://wenku.baidu.com/link?url=WYE0AQi98Cdc7MLxkG3m9Jy0GQLfdAE03JZ-1HkNTZBo5HlGPLKn63bLh2J-G3e8anNJzxPYmODafYUgpXL9UGuIK4VGSiDAtTF0iG-uFBS" target="_blank" rel="external">浅谈用极大化思想解决最大子矩形问题 —福州第三中学  王知昆</a></p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(ll&amp;res)</span></span>&#123;</div><div class="line">	res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">	<span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">		<span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2002</span>;</div><div class="line"><span class="keyword">int</span> n,k;</div><div class="line">ll sum[N][N],line[N];</div><div class="line"><span class="function">ll <span class="title">calc</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> sum[x][y]-sum[x<span class="number">-1</span>][y]-sum[x][y<span class="number">-1</span>]+sum[x<span class="number">-1</span>][y<span class="number">-1</span>];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">judge</span><span class="params">(<span class="keyword">int</span> lx,<span class="keyword">int</span> ly,<span class="keyword">int</span> rx,<span class="keyword">int</span> ry)</span></span>&#123;<span class="comment">//计算一个极大子矩形是否存在一个合法解 </span></div><div class="line">	<span class="keyword">if</span>(ly&gt;ry)<span class="keyword">return</span>;</div><div class="line">	ll tot=sum[rx][ry]-sum[lx<span class="number">-1</span>][ry]-sum[rx][ly<span class="number">-1</span>]+sum[lx<span class="number">-1</span>][ly<span class="number">-1</span>];</div><div class="line">	<span class="keyword">if</span>(tot&lt;k)<span class="keyword">return</span>;<span class="comment">//显然不可能 </span></div><div class="line">	<span class="keyword">if</span>(tot&gt;=k&amp;&amp;tot&lt;=<span class="number">2</span>*k)&#123;<span class="comment">//本身满足 </span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d %d %d %d\n"</span>,ly,lx,ry,rx);</div><div class="line">		<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=lx;i&lt;=rx;i++)&#123;</div><div class="line">		line[i]=sum[i][ry]-sum[i<span class="number">-1</span>][ry]-sum[i][ly<span class="number">-1</span>]+sum[i<span class="number">-1</span>][ly<span class="number">-1</span>];</div><div class="line">		<span class="keyword">if</span>(line[i]&gt;=k)&#123;<span class="comment">//可以在本行找到ans </span></div><div class="line">			ll cur_sum=<span class="number">0</span>;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=ly;j&lt;=ry;j++)&#123;</div><div class="line">				cur_sum+=calc(i,j);</div><div class="line">				<span class="keyword">if</span>(cur_sum&gt;=k&amp;&amp;cur_sum&lt;=k*<span class="number">2</span>)&#123;</div><div class="line">					<span class="built_in">printf</span>(<span class="string">"%d %d %d %d\n"</span>,ly,i,j,i);</div><div class="line">					<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//把每一行压成一个数字，竖下来在列中找 </span></div><div class="line">	ll cur_sum=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=lx;i&lt;=rx;i++)&#123;</div><div class="line">		cur_sum+=line[i];</div><div class="line">		<span class="keyword">if</span>(cur_sum&gt;=k&amp;&amp;cur_sum&lt;=k*<span class="number">2</span>)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d %d %d %d\n"</span>,ly,lx,ry,i);</div><div class="line">			<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> left kfsdkgfh</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> right ljlsdjgl</span></div><div class="line"><span class="keyword">short</span> height[N][N],left[N][N],right[N][N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">cin</span>&gt;&gt;k&gt;&gt;n;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">			Rd(sum[i][j]);</div><div class="line">			<span class="keyword">if</span>(sum[i][j]&gt;=k&amp;&amp;sum[i][j]&lt;=k*<span class="number">2</span>)&#123;</div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d %d %d %d\n"</span>,j,i,j,i);</div><div class="line">				<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">			&#125;</div><div class="line">			sum[i][j]=sum[i<span class="number">-1</span>][j]+sum[i][j<span class="number">-1</span>]-sum[i<span class="number">-1</span>][j<span class="number">-1</span>]+sum[i][j];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;<span class="comment">//预处理 </span></div><div class="line">		left[i][<span class="number">0</span>]=<span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">			left[i][j]=left[i][j<span class="number">-1</span>];</div><div class="line">			<span class="keyword">if</span>(calc(i,j)&gt;<span class="number">2</span>*k)left[i][j]=j;</div><div class="line">		&#125;</div><div class="line">		right[i][n+<span class="number">1</span>]=n+<span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=n;j&gt;=<span class="number">1</span>;j--)&#123;</div><div class="line">			right[i][j]=right[i][j+<span class="number">1</span>];</div><div class="line">			<span class="keyword">if</span>(calc(i,j)&gt;<span class="number">2</span>*k)right[i][j]=j;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(calc(i,j)&gt;<span class="number">2</span>*k)<span class="keyword">continue</span>;<span class="comment">//有障碍 </span></div><div class="line">			<span class="keyword">if</span>(i==<span class="number">1</span>||calc(i<span class="number">-1</span>,j)&gt;<span class="number">2</span>*k)&#123;<span class="comment">//上面一个点有障碍 </span></div><div class="line">				height[i][j]=<span class="number">1</span>;</div><div class="line">			&#125;<span class="keyword">else</span>&#123;<span class="comment">//上面一个点没有障碍 </span></div><div class="line">				height[i][j]=height[i<span class="number">-1</span>][j]+<span class="number">1</span>;</div><div class="line">				left[i][j]=max(left[i<span class="number">-1</span>][j],left[i][j]);</div><div class="line">				right[i][j]=min(right[i<span class="number">-1</span>][j],right[i][j]);</div><div class="line">			&#125;</div><div class="line">			judge(i-height[i][j]+<span class="number">1</span>,left[i][j]+<span class="number">1</span>,i,right[i][j]<span class="number">-1</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"NIE\n"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -273,7 +289,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/2016/10/09/POI2013 Taxis/" data-id="ciuy01ckq001t589digbj1c5g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/10/31/POI2008 Plot purchase/" data-id="ciuy01cjs000c589d8j0bxysm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -341,7 +357,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
             
     
-        <a href="https://YummyJay.github.io/2016/10/09/POI2013 Taxis/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/09/POI2013 Taxis/">评论</a>
+        <a href="https://YummyJay.github.io/2016/10/31/POI2008 Plot purchase/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/10/31/POI2008 Plot purchase/">评论</a>
     
 
         </footer>
@@ -350,19 +366,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         
 <nav id="article-nav">
     
-        <a href="/2016/10/09/POI2013 Take-out/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    POI2013 Take-out
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/10/09/POI2013 Triumphal arch/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/10/28/POI2008 Triangles/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">POI2013 Triumphal arch</div>
+            <div class="article-nav-title">POI2008 Triangles</div>
         </a>
     
 </nav>
@@ -376,7 +383,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     <section id="comments">
     
         
-    <div class="ds-thread" data-thread-key="2016/10/09/POI2013 Taxis/" data-title="POI2013 Taxis" data-url="https://YummyJay.github.io/2016/10/09/POI2013 Taxis/"></div>
+    <div class="ds-thread" data-thread-key="2016/10/31/POI2008 Plot purchase/" data-title="POI2008 Plot purchase" data-url="https://YummyJay.github.io/2016/10/31/POI2008 Plot purchase/"></div>
     <style>
         #ds-thread #ds-reset .ds-textarea-wrapper {
             background: none;
