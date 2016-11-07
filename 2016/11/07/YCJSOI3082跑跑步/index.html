@@ -3,14 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: POI | YummyJay&#39;s archives</title>
+    <title>YCJSOI3082跑跑步 | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="YummyJay's archives">
-<meta property="og:url" content="https://YummyJay.github.io/categories/POI/index.html">
+    <meta name="description" content="一道数学题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YCJSOI3082跑跑步">
+<meta property="og:url" content="https://YummyJay.github.io/2016/11/07/YCJSOI3082跑跑步/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
+<meta property="og:description" content="一道数学题">
+<meta property="og:updated_time" content="2016-11-07T09:04:47.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YummyJay's archives">
+<meta name="twitter:title" content="YCJSOI3082跑跑步">
+<meta name="twitter:description" content="一道数学题">
     
 
     
@@ -208,378 +212,214 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">POI</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-YCJSOI3082跑跑步" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/11/02/POI2008/">POI2008</a>
+        <h1 class="article-title" itemprop="name">
+            YCJSOI3082跑跑步
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/11/02/POI2008/">
-            <time datetime="2016-11-02T10:35:14.000Z" itemprop="datePublished">2016-11-02</time>
+        <a href="/2016/11/07/YCJSOI3082跑跑步/">
+            <time datetime="2016-11-07T07:39:44.000Z" itemprop="datePublished">2016-11-07</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
+        <a class="article-category-link" href="/categories/YCJSOI/">YCJSOI</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/杂/">杂</a>
+        <a class="tag-link" href="/tags/数论/">数论</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/31/POI2008 Plot purchase/">POI2008 Plot purchase</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><em>一道数学题</em></p>
+<a id="more"></a>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>小胡同学是个爱运动的好孩子。</p>
+<p>每天晚上，小胡都会到操场上跑步，学校的操场可以看成一个由 n个格子排成的一个环形，格子按照顺时针顺序从0到n-1标号。</p>
+<p>小胡观察到有m个同学在跑步，最开始每个同学都在起点（0号格子），每个同学都有一个步长ai，每跑一步，每个同学都会往顺时针方向前进ai个格子。由于跑道是环形的，如果一个同学站在n-1这个格子上，如果他前进一个格子，他就会来到0。</p>
+<p>他们这样在跑道上不知疲倦地跑呀跑呀。小胡同学惊奇地发现，似乎有些格子永远不会被同学跑到，他想知道这些永远不会被任何一个同学的跑到的格子的数目，你能帮帮他吗？（我们假定所有同学都跑到过0号格子）。</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>如果一个位置p会被踩到的话，那么需要满足$\exists i$ ，使得$a_i \times x \equiv  p (mod \ m)$。</p>
+<p>化简一下得到：$a_i \times x - n \times y = p  (x,y \in \text{Z} )$。</p>
+<p>若要此方程有解，必须满足$gcd(a_i,n)|p$。</p>
+<p>令$c_i=gcd(a_i,n),d=gcd(p,n)$。</p>
+<p>因为$c_i|p$并且$c_i|n$，因而$c_i$为$n$和$p$的公因子。而$d$为$p$和$n$的最大公因子，则一定$\exists c_i$ ，满足$c_i|d$。</p>
+<p>那么对于这道题，思路就变成这样子了：</p>
+<p>枚举这个$d$。因为$d$为$n$的因子，因而这里的枚举是$\sqrt n$的。</p>
+<p>接下来对于每一个$d$，先判断是否存在一个$c_i$满足条件，若存在，我们计算它对答案的贡献。</p>
+<p>对答案的贡献即为求有多少个$p$满足$gcd(p,n)=d$。</p>
+<p>化简得$gcd(\frac p d,\frac n d)=1$，也就是求$\varphi(\frac n d ) $。</p>
+<p>也就是欧拉公式，我们有$\varphi(i)=i \times (1- \frac 1 {p_1}) \times (1- \frac 1 {p_2}) … $</p>
+<p>综上所述，题目即可求解。</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Rd</span><span class="params">(<span class="keyword">int</span>&amp;res)</span></span>&#123;</div><div class="line">    res=<span class="number">0</span>;<span class="keyword">char</span> c;</div><div class="line">    <span class="keyword">while</span>(c=getchar(),c&lt;<span class="number">48</span>);</div><div class="line">    <span class="keyword">do</span> res=res*<span class="number">10</span>+(c&amp;<span class="number">15</span>);</div><div class="line">        <span class="keyword">while</span>(c=getchar(),c&gt;<span class="number">47</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">55</span>;</div><div class="line"><span class="keyword">int</span> n,m,a[N],c[N],ans;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)<span class="keyword">return</span> a;</div><div class="line">    <span class="keyword">return</span> gcd(b,a%b);</div><div class="line">&#125;</div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;son;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">phi</span><span class="params">(<span class="keyword">int</span> p)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> res=p;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;son.size();i++)&#123;</div><div class="line">        <span class="keyword">if</span>(p%son[i]==<span class="number">0</span>)res=res/son[i]*(son[i]<span class="number">-1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> d)</span></span>&#123;</div><div class="line">    <span class="keyword">bool</span> flag=<span class="literal">false</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(d%c[i]==<span class="number">0</span>)flag=<span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(!flag)<span class="keyword">return</span>;</div><div class="line">    ans+=phi(n/d);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> LIM=<span class="number">50000</span>;</div><div class="line"><span class="keyword">bool</span> is_prime[LIM];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> sum)</span></span>&#123;</div><div class="line">    <span class="built_in">memset</span>(is_prime,<span class="number">1</span>,<span class="keyword">sizeof</span>(is_prime));</div><div class="line">    is_prime[<span class="number">1</span>]=is_prime[<span class="number">0</span>]=<span class="literal">false</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;LIM;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(is_prime[i])&#123;</div><div class="line">            <span class="keyword">if</span>(sum%i==<span class="number">0</span>)son.push_back(i),sum/=i;</div><div class="line">            <span class="keyword">while</span>(sum%i==<span class="number">0</span>)sum/=i;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+i;j&lt;LIM;j+=i)is_prime[j]=<span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(sum!=<span class="number">1</span>)son.push_back(sum);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    Rd(n),Rd(m);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</div><div class="line">        Rd(a[i]);</div><div class="line">        c[i]=gcd(a[i],n);</div><div class="line">    &#125;</div><div class="line">    init(n);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;<span class="number">1L</span>L*i*i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)&#123; </div><div class="line">            solve(i);</div><div class="line">            <span class="keyword">if</span>(n/i!=i)solve(n/i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,n-ans);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/31/POI2008 Plot purchase/">
-            <time datetime="2016-10-31T11:11:46.000Z" itemprop="datePublished">2016-10-31</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/最大子矩形/">最大子矩形</a>, <a class="tag-link" href="/tags/构造/">构造</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/28/POI2008 Triangles/">POI2008 Triangles</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/28/POI2008 Triangles/">
-            <time datetime="2016-10-28T13:17:15.000Z" itemprop="datePublished">2016-10-28</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/计算几何/">计算几何</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/28/POI2008 Subdivision of Kingdom/">POI2008 Subdivision of Kingdom</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/28/POI2008 Subdivision of Kingdom/">
-            <time datetime="2016-10-28T09:05:51.000Z" itemprop="datePublished">2016-10-28</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/dfs/">dfs</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/28/POI2008 Station/">POI2008 Station</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/28/POI2008 Station/">
-            <time datetime="2016-10-28T06:12:24.000Z" itemprop="datePublished">2016-10-28</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/树形dp/">树形dp</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/27/POI2008 Lights/">POI2008 Lights</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/27/POI2008 Lights/">
-            <time datetime="2016-10-27T11:30:55.000Z" itemprop="datePublished">2016-10-27</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/高精度/">高精度</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/25/POI2008 The Great Escape/">POI2008 The Great Escape</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/25/POI2008 The Great Escape/">
-            <time datetime="2016-10-25T13:23:00.000Z" itemprop="datePublished">2016-10-25</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/dp/">dp</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/23/POI2008 Mafia/">POI2008 Mafia</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/23/POI2008 Mafia/">
-            <time datetime="2016-10-23T07:21:06.000Z" itemprop="datePublished">2016-10-23</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/基环外向树/">基环外向树</a>, <a class="tag-link" href="/tags/拓扑排序/">拓扑排序</a>, <a class="tag-link" href="/tags/贪心/">贪心</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/21/POI2008 Robinson/">POI2008 Robinson</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/21/POI2008 Robinson/">
-            <time datetime="2016-10-21T06:39:25.000Z" itemprop="datePublished">2016-10-21</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BFS/">BFS</a>, <a class="tag-link" href="/tags/差分前缀和/">差分前缀和</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/20/POI2008 Trains/">POI2008 Trains</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/20/POI2008 Trains/">
-            <time datetime="2016-10-20T02:02:58.000Z" itemprop="datePublished">2016-10-20</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/POI/">POI</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Treap/">Treap</a>, <a class="tag-link" href="/tags/hash/">hash</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/categories/POI/page/2/">2</a><a class="page-number" href="/categories/POI/page/3/">3</a><a class="page-number" href="/categories/POI/page/4/">4</a><a class="extend next" rel="next" href="/categories/POI/page/2/">下一页 &raquo;</a>
-    </nav>
+    <a data-url="https://YummyJay.github.io/2016/11/07/YCJSOI3082跑跑步/" data-id="civ7um7o7002if49dxb4jc6pr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://YummyJay.github.io/2016/11/07/YCJSOI3082跑跑步/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/11/07/YCJSOI3082跑跑步/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/11/02/POI2008/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">POI2008</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/11/07/YCJSOI3082跑跑步/" data-title="YCJSOI3082跑跑步" data-url="https://YummyJay.github.io/2016/11/07/YCJSOI3082跑跑步/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
