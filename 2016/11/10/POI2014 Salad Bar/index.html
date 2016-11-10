@@ -3,20 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>POI2008 | YummyJay&#39;s archives</title>
+    <title>POI2014 Salad Bar | YummyJay&#39;s archives</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="POI2008">
+    <meta name="description" content="POI2014 Salad Bar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="POI2008">
-<meta property="og:url" content="https://YummyJay.github.io/2016/11/02/POI2008/index.html">
+<meta property="og:title" content="POI2014 Salad Bar">
+<meta property="og:url" content="https://YummyJay.github.io/2016/11/10/POI2014 Salad Bar/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
-<meta property="og:description" content="POI2008">
-<meta property="og:image" content="https://yummyjay.github.io/img/poi2008.png">
-<meta property="og:updated_time" content="2016-11-02T11:51:44.000Z">
+<meta property="og:description" content="POI2014 Salad Bar">
+<meta property="og:updated_time" content="2016-11-10T07:51:51.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="POI2008">
-<meta name="twitter:description" content="POI2008">
-<meta name="twitter:image" content="https://yummyjay.github.io/img/poi2008.png">
+<meta name="twitter:title" content="POI2014 Salad Bar">
+<meta name="twitter:description" content="POI2014 Salad Bar">
     
 
     
@@ -214,7 +212,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </aside>
 
             
-            <section id="main"><article id="post-POI2008" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-POI2014 Salad Bar" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +220,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                 
     
         <h1 class="article-title" itemprop="name">
-            POI2008
+            POI2014 Salad Bar
         </h1>
     
 
@@ -231,8 +229,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/11/02/POI2008/">
-            <time datetime="2016-11-02T10:35:14.000Z" itemprop="datePublished">2016-11-02</time>
+        <a href="/2016/11/10/POI2014 Salad Bar/">
+            <time datetime="2016-11-10T06:51:07.000Z" itemprop="datePublished">2016-11-10</time>
         </a>
     </div>
 
@@ -246,7 +244,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/杂/">杂</a>
+        <a class="tag-link" href="/tags/dp/">dp</a>, <a class="tag-link" href="/tags/想法/">想法</a>
     </div>
 
                     </div>
@@ -257,13 +255,43 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><em>POI2008</em></p>
+            <p><em>POI2014 Salad Bar</em></p>
 <a id="more"></a>
-<p>写了好久，到现在为止还剩两道题。</p>
-<p>一道是神奇的中国剩余定理，一道是奇妙的构造。</p>
-<p>暂时不想写了，先挖个坑，等以后再填吧。</p>
-<p>最后截图留念：</p>
-<p><img src="https://yummyjay.github.io/img/poi2008.png" alt="img"></p>
+<h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>有一个长度为$n$的字符串，每一位只会是$p$或$j$。你需要取出一个子串$S$（从左到右或从右到左一个一个取出），使得不管是从左到右还是从右往左取，都保证每时每刻已取出的$p$的个数不小于$j$的个数。你需要最大化$|S|$。</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>首先很容易想到把每一个$p$看做$1$，把每一个$j$看做$-1$，之后通过<strong>前缀和</strong>（$sum$）来判断是否满足条件。</p>
+<p>如果一个子串$[L,R]$是合法的，那么必然满足以下条件:</p>
+<p>$$\forall k \in [L+1,R] ,sum_i \le sum_k \le sum_j$$</p>
+<p>反之，只要满足了上述条件，这个子串一定合法。</p>
+<p>于是，我们不难想到，枚举一个每一个$L$，对于每一个$L$，向后找$R$。</p>
+<p>对于一个$L$， 找$L$右边第一个$sum$比$i$小的下标$k$。</p>
+<p>那么显然，$k$以及$k$右边的点，都无法做$i$的右端点。</p>
+<p>因而只能在区间$[L+1,k-1]$找右端点。</p>
+<p>因为要使$sum_L \le sum_x \le sum_R$，显然区间中$sum$最大的哪一个即为右端点。（若最大有多个，取最右边的那个。）</p>
+<p>这个可以用反证法：</p>
+<p>假设我们不以最大的为右端点。</p>
+<p>那么有两种情况：</p>
+<ol>
+<li>最大的点在你取的点的左边，那么这样最大的点在$[L+1，R]$之间，但是$sum$值却比$R$ 大，显然是不合法的。</li>
+<li>最大的点在你取的点的右边。那么我们取最大的点一定可以满足，并且还比当前点更优，因而还不如取最大的那个。</li>
+</ol>
+<p>综上所述，我们得到了一种复杂度为$O(nlog n)$的算法。</p>
+<p>首先可以$O(n)$ 预处理出每一个左端点的右端点存在的可能区间。</p>
+<p>之后对于每一个左端点，我们在区间查询最大值即可。（这个可以用线段树等数据结构来写，单次查询为$O(logn)$）。</p>
+<hr>
+<h4 id="但实际上还有一种O-n-的写法："><a href="#但实际上还有一种O-n-的写法：" class="headerlink" title="但实际上还有一种O(n)的写法："></a>但实际上还有一种O(n)的写法：</h4><p>不妨把问题具象化：</p>
+<p>把前缀和看做是<strong>高度</strong>，由于每一次更改的值绝对值为$1$ ，因而一个个$sum$连成了一幅连续的折线图。</p>
+<p>我们把向上凸起的称为<strong>山峰</strong>，向下凹的称为<strong>山谷</strong>。</p>
+<p>那么对于每一个点，我们要找的实际上是，往右延伸时，在不出现比当前点高度矮的山谷的前提下，最高的山峰的位置。</p>
+<p>这个可以用$dp$来写。</p>
+<ol>
+<li>若$str_i=p$ ，那么我们有 $ peak<em>i= \begin{cases} { peak</em>{i+1} }&amp; { (sum<em>{peak</em>{i+1}}&gt;sum<em>{peak</em>{nxt<em>{i} } }) }\ {peak</em>{nxt<em>i} }&amp;{ (sum</em>{peak<em>{i+1}} \le sum</em>{peak<em>{nxt</em>{i} } })  } \end{cases}$</li>
+<li>若$str_i=j$ ，那么我们有$peak _i = i$</li>
+</ol>
+<p>其中$nxt_i$表示，下一个出现的与当前点高度相同的点的位置。</p>
+<p>我们可以$O(n)$预处理出$nxt$数组，又可以$O(n)$实现$dp$值的转移。</p>
+<p>综上题目即可解。</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h4><p><strong>这里只给出O(n)的代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000002</span>;</div><div class="line"><span class="keyword">char</span> str[N];</div><div class="line"><span class="keyword">int</span> n,mi,sum[N];</div><div class="line"><span class="keyword">int</span> nxt[N];<span class="comment">//下一个出现的与当前点高度相同的点的位置</span></div><div class="line"><span class="keyword">int</span> vis[N&lt;&lt;<span class="number">1</span>];</div><div class="line"><span class="keyword">int</span> peak[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %s"</span>,&amp;n,str+<span class="number">1</span>);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		sum[i]=sum[i<span class="number">-1</span>]+(str[i]==<span class="string">'p'</span>?<span class="number">1</span>:<span class="number">-1</span>);</div><div class="line">	<span class="built_in">memset</span>(vis,<span class="number">-1</span>,<span class="keyword">sizeof</span>(vis));</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">		sum[i]=sum[i]+N;</div><div class="line">		nxt[i]=vis[sum[i]];</div><div class="line">		vis[sum[i]]=i;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> cpeak,ans=<span class="number">0</span>;</div><div class="line">	peak[n]=cpeak=n;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</div><div class="line">		<span class="keyword">if</span>(str[i]==<span class="string">'p'</span>)&#123;</div><div class="line">			<span class="keyword">if</span>(~nxt[i<span class="number">-1</span>]&amp;&amp;sum[peak[nxt[i<span class="number">-1</span>]]]&gt;=sum[cpeak])peak[i<span class="number">-1</span>]=cpeak=peak[nxt[i<span class="number">-1</span>]];</div><div class="line">			<span class="keyword">else</span> peak[i<span class="number">-1</span>]=cpeak;</div><div class="line">			ans=max(ans,cpeak-i+<span class="number">1</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> peak[i<span class="number">-1</span>]=cpeak=i<span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**************************************************************</span></div><div class="line">    User: YummyJay</div><div class="line">    Language: C++</div><div class="line">    Result: 正确</div><div class="line">    Time:24 ms</div><div class="line">    Memory:22204 kb</div><div class="line">****************************************************************/</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -274,7 +302,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/2016/11/02/POI2008/" data-id="civc23r640011ns9d6qyizh15" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/11/10/POI2014 Salad Bar/" data-id="civc23r6w0029ns9da0o2t7gm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -342,7 +370,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
             
     
-        <a href="https://YummyJay.github.io/2016/11/02/POI2008/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/11/02/POI2008/">评论</a>
+        <a href="https://YummyJay.github.io/2016/11/10/POI2014 Salad Bar/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://YummyJay.github.io/2016/11/10/POI2014 Salad Bar/">评论</a>
     
 
         </footer>
@@ -351,19 +379,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
         
 <nav id="article-nav">
     
-        <a href="/2016/11/07/YCJSOI3082跑跑步/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    YCJSOI3082跑跑步
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/10/31/POI2008 Plot purchase/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/11/07/YCJSOI3082跑跑步/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">POI2008 Plot purchase</div>
+            <div class="article-nav-title">YCJSOI3082跑跑步</div>
         </a>
     
 </nav>
@@ -377,7 +396,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     <section id="comments">
     
         
-    <div class="ds-thread" data-thread-key="2016/11/02/POI2008/" data-title="POI2008" data-url="https://YummyJay.github.io/2016/11/02/POI2008/"></div>
+    <div class="ds-thread" data-thread-key="2016/11/10/POI2014 Salad Bar/" data-title="POI2014 Salad Bar" data-url="https://YummyJay.github.io/2016/11/10/POI2014 Salad Bar/"></div>
     <style>
         #ds-thread #ds-reset .ds-textarea-wrapper {
             background: none;
