@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://YummyJay.github.io/2016/11/10/POI2014 Salad Bar/index.html">
 <meta property="og:site_name" content="YummyJay's archives">
 <meta property="og:description" content="POI2014 Salad Bar">
-<meta property="og:updated_time" content="2016-11-10T07:51:51.285Z">
+<meta property="og:updated_time" content="2016-11-10T08:08:50.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POI2014 Salad Bar">
 <meta name="twitter:description" content="POI2014 Salad Bar">
@@ -284,8 +284,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 <p>那么对于每一个点，我们要找的实际上是，往右延伸时，在不出现比当前点高度矮的山谷的前提下，最高的山峰的位置。</p>
 <p>这个可以用$dp$来写。</p>
 <ol>
-<li>若$str_i=p$ ，那么我们有 $ peak<em>i= \begin{cases} { peak</em>{i+1} }&amp; { (sum<em>{peak</em>{i+1}}&gt;sum<em>{peak</em>{nxt<em>{i} } }) }\ {peak</em>{nxt<em>i} }&amp;{ (sum</em>{peak<em>{i+1}} \le sum</em>{peak<em>{nxt</em>{i} } })  } \end{cases}$</li>
-<li>若$str_i=j$ ，那么我们有$peak _i = i$</li>
+<li>若$str_i=p$ ，那么我们有 $ peak_i=  \begin{cases} { peak_{ i+1}  } &amp; {  (sum   _{peak_{i+1}}&gt;sum_{peak _{nxt_{i} } }) } \\ {peak_{nxt_i} }&amp;{ (sum_{peak_{i+1}} \le sum_{peak_{nxt_{i} } })  } \end{cases}$</li>
+<li>若$str_i=j$ ，那么我们有$peak\ _i = i$</li>
 </ol>
 <p>其中$nxt_i$表示，下一个出现的与当前点高度相同的点的位置。</p>
 <p>我们可以$O(n)$预处理出$nxt$数组，又可以$O(n)$实现$dp$值的转移。</p>
@@ -302,7 +302,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 
 </div>
 
-    <a data-url="https://YummyJay.github.io/2016/11/10/POI2014 Salad Bar/" data-id="civc23r6w0029ns9da0o2t7gm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://YummyJay.github.io/2016/11/10/POI2014 Salad Bar/" data-id="civc2pepr002o649dfq33b3ye" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
